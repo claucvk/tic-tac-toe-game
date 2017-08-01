@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Tic Tac Toe Game</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -12,50 +12,23 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="container-fluid">
-      <nav>
-  			<a href="#">Logo</a>
-  			<a href="#">TIC TAC TOE GAME</a>
-        <a href="#">Log In</a>
-        <a href="#">Sign Up</a>
-  		</nav>
-    <main>
-      <h2>It's player Turn</h2>
+      <header>
+        <nav>
 
-      <div class="scoreGame">
-          <div class="row">
-            <div class="col-xs-4 box">PLAYER O</div>
-            <div class="col-xs-4 box">TIES</div>
-            <div class="col-xs-4 box">PLAYER X</div>
-      </div>
-      <div class="row">
-        <div class="col-xs-4 box"></div>
-        <div class="col-xs-4 box"></div>
-        <div class="col-xs-4 box"></div>
-  </div>
-  <br>
-      <!Game Board-->
-<center><div class="boardGame">
-    <div class="row">
-      <div class="col-xs-4 box">.col-xs-4</div>
-      <div class="col-xs-4 box">.col-xs-4</div>
-      <div class="col-xs-4 box">.col-xs-4</div>
-    </div>
-    <div class="row">
-      <div class="col-xs-4 box">.col-xs-4</div>
-      <div class="col-xs-4 box">.col-xs-4</div>
-      <div class="col-xs-4 box">.col-xs-4</div>
-    </div>
-    <div class="row">
-      <div class="col-xs-4 box">.col-xs-4</div>
-      <div class="col-xs-4 box">.col-xs-4</div>
-      <div class="col-xs-4 box">.col-xs-4</div>
-    </div>
-</div></center>
+        </nav>
+      </header>
+      <main>
+        <h1>TIC TAC TOE GAME</h1>
 
-<form>
-  <input type="button" value="Restart Game" onclick="restartGame()">
-</form>
+        <div class="whosTurn">
+          <p>It's Player X's Turn</p>
+        </div>
+        <div class="tableGame">
 
-</main>
+        </div>
+        <div class="scoreGame">
+          
+        </div>
+      </main>
     </body>
 </html>

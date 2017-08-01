@@ -13,22 +13,6 @@ body {
   color: $font-color;
 }
 
-.box {
-  border: 1px solid $white;
-  padding: 60px;
-  margin: auto;
-}
-
-.boardGame {
-  margin: auto;
-  background-color: #9999cc;
-}
-.scoreGame {
-  margin: auto;
-  background-color: #fff3bc;
-}
-
-nav {
-  background-color: #1ca099;
-  padding: 20px;
+#gametable {
+  border: 3px solid black
 }
