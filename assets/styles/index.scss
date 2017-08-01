@@ -1,0 +1,30 @@
+$icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
+@import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+$icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
+@import '~bootstrap-sass/assets/stylesheets/bootstrap/';
+
+$background-color: white;
+$font-color: black;
+$white: #fff;
+
+body {
+  background-color: $background-color;
+  color: $font-color;
+}
+
+.box {
+  border: 1px solid $white;
+  padding: 60px;
+  margin: auto;
+}
+
+.boardGame {
+  margin: auto;
+  background-color: #9999cc;
+}
+
+nav {
+  background-color: #1ca099;
+  padding: 20px;
+}
