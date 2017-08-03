@@ -14,7 +14,8 @@
     <body class="container-fluid">
       <header>
         <nav>
-
+          <a href="#">Log In</a>
+          <a href="#">Sign Up</a>
         </nav>
       </header>
       <main>
@@ -23,12 +24,46 @@
         <div class="whosTurn">
           <p>It's Player X's Turn</p>
         </div>
-        <div class="tableGame">
 
+        <div class="boardGame">
+          <table>
+       <tr>
+          <td .item1><button onclick("a0")></button></td>
+          <td .item2><button onclick("a1")></button></td>
+          <td .item3><button onclick("a2")></button>  </td>
+        </tr>
+        <tr>
+          <td .item4><button onclick("b1")></button></td>
+          <td .item5><button onclick("b2")></button></td>
+          <td .item6><button onclick("b3")></button></td>
+        </tr>
+        <tr>
+          <td .item7><button onclick("c1")></button></td>
+          <td .item8><button onclick("c2")></button></td>
+          <td .item9><button onclick("c3")></button></td>
+        </tr>
+     <br>
+   </table>
         </div>
+        <br>
         <div class="scoreGame">
-          
+          <table class=tableScoreGame>
+       <tr>
+          <td> PLAYER O </td>
+          <td> TIES </td>
+          <td> PLAYER X </td>
+        </tr>
+        <tr>
+          <td> 1 </td>
+          <td> 2 </td>
+          <td> 3 </td>
+        </tr>
+        </table>
         </div>
+        <br>
+        <form>
+          <input type="button" value="Restart Game" onclick="restartGame()">
+        </form>
       </main>
     </body>
 </html>

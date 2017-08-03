@@ -1,18 +1,50 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
-$icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
-@import '~bootstrap-sass/assets/stylesheets/bootstrap/';
-
 $background-color: white;
 $font-color: black;
 $white: #fff;
 
 body {
-  background-color: $background-color;
-  color: $font-color;
+
+    font-family:“Roboto”, Arial, sans-serif;
+     margin:0 auto;
+     text-align:center;
+     margin-top:50px;
+     color:black;
+     text-shadow:-1px -1px #333;
 }
 
-#gametable {
-  border: 3px solid black
+nav {
+  background-color: #1ca099;
+  padding: 20px;
+}
+
+h1 {
+    font-family: ‘EB Garamond’, serif;
+}
+
+table {
+    border-collapse: collapse;
+    width:450px;
+    margin:0 auto;
+    height: 450px;
+    font-family: ‘EB Garamond’, serif;
+}
+
+td {
+         width: 50px;
+         height: 50px;
+         border:1px solid #555;
+         cursor:pointer;
+         &:before {
+           font-size:1.5em;
+           line-height:1;
+           font-family: ‘EB Garamond’, serif;
+         }
+}
+
+.tableScoreGame {
+  width: 450px;
+  height: 50px;
 }
