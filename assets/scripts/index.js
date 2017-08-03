@@ -60,6 +60,17 @@ const markerSquare = function markerSquare(turn, columnName, columnIndex) {
   };
 };
 
+// Display a notification message when there is a three markers in a row (horizontal, vertical or diagonal).
+
+// Check each vertical column for 3 markers in a row.
+const verticalChecking = function verticalChecking() {
+  for (i = 0; i < 3; i++) {
+    if (a[i] === b[i] && b[i] === c[i]) {
+      console.log(a[i]);
+    };
+  };
+};
+
 /*
 const markerInSquare = function markerInSquare(column) {
   switch (column) {
@@ -134,8 +145,6 @@ const squareChosen = function (turn, columnCopy) {
   }
 };
 */
-
-// Display a notification message when there is a three markers in a row (horizontal, vertical or diagonal).
 
 // Display and update the score game and the number of ties.
 
