@@ -88,6 +88,13 @@ const diagonalupChecking = function diagonalupChecking() {
       console.log(c[0]);
     };
   };
+
+// Check diagonal down for 3 markers in a row.
+const diagonaldownChecking = function diagonaldownChecking() {
+      if (a[0] === b[1] && b[1] === c[2]) {
+        console.log(c[2]);
+      };
+    };
 /*
 const markerInSquare = function markerInSquare(column) {
   switch (column) {
