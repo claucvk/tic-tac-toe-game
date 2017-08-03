@@ -82,8 +82,12 @@ const horizontalChecking = function horizontalChecking() {
   }
 };
 
-// Check each diagonal up for 3 markers in a row.
-
+// Check diagonal up for 3 markers in a row.
+const diagonalupChecking = function diagonalupChecking() {
+    if (c[0] === b[1] && b[1] === a[2]) {
+      console.log(c[0]);
+    };
+  };
 /*
 const markerInSquare = function markerInSquare(column) {
   switch (column) {
