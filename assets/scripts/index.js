@@ -62,7 +62,7 @@ const markerSquare = function markerSquare(turn, columnName, columnIndex) {
 
 // Display a notification message when there is a three markers in a row (horizontal, vertical or diagonal).
 
-// Check each vertical column for 3 markers in a row.
+// Check each vertical for 3 markers in a row.
 const verticalChecking = function verticalChecking() {
   for (i = 0; i < 3; i++) {
     if (a[i] === b[i] && b[i] === c[i]) {
@@ -70,6 +70,19 @@ const verticalChecking = function verticalChecking() {
     };
   };
 };
+
+// Check each horizontal for 3 markers in a row.
+const horizontalChecking = function horizontalChecking() {
+  if (a[0] === a[1] && a[1] === a[2]) {
+    console.log(a[0]);
+  } else if (b[0] === b[1] && b[1] === b[2]) {
+    console.log(b[0]);
+  } else if (c[0] === c[1] && c[1] === c[2]) {
+    console.log(c[0]);
+  }
+};
+
+// Check each diagonal up for 3 markers in a row.
 
 /*
 const markerInSquare = function markerInSquare(column) {
