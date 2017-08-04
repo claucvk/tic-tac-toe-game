@@ -57,27 +57,25 @@ const markerSquare = function markerSquare(turn, columnName, columnIndex) {
         c[columnIndex] = playerX;
         return checkingResult();
     }
-    //return; run win checking functions alert('player O wins')
-    //
+
   } else if (turn === playerO) {
     console.log("It's Player O's Turn");
     switch (columnName) {
       case a:
         a[columnIndex] = playerO;
+        return checkingResult();
         break;
       case b:
         b[columnIndex] = playerO;
+        return checkingResult();
         break;
       case c:
         c[columnIndex] = playerO;
+        return checkingResult();
     }
 
-    //return; run win checking functions alert('player O wins')
-    //playerO++
   };
 };
-
-
 
 // Display a notification message when there is a three markers in a row (horizontal, vertical or diagonal).
 
