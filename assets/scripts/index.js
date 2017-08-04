@@ -28,21 +28,37 @@ let a = [0, 0, 0];
 let b = [0, 0, 0];
 let c = [0, 0, 0];
 
+let playerXScore = 0;
+let playerOScore = 0;
+
+/*$(document).ready(function () {
+  $('#c1').on('click', function (event) {
+    markerSquare(turn, columnName, columnIndex); // como introducir los parametros de abajo.
+  });
+});*/
+
+/*document.getElementByTagName(td).addEventListener('click', function () {
+  document.getElementById(td).innerHTML = "<img src='../images/x.png'>";
+});*/
+
 const markerSquare = function markerSquare(turn, columnName, columnIndex) {
   if (turn === playerX) {
     console.log("It's Player X's Turn");
     switch (columnName) {
       case a:
         a[columnIndex] = playerX;
+        return checkingResult();
         break;
       case b:
         b[columnIndex] = playerX;
+        return checkingResult();
         break;
       case c[i]:
         c[columnIndex] = playerX;
+        return checkingResult();
     }
-
-    // return;
+    //return; run win checking functions alert('player O wins')
+    //
   } else if (turn === playerO) {
     console.log("It's Player O's Turn");
     switch (columnName) {
@@ -56,119 +72,76 @@ const markerSquare = function markerSquare(turn, columnName, columnIndex) {
         c[columnIndex] = playerO;
     }
 
-    //return;
+    //return; run win checking functions alert('player O wins')
+    //playerO++
   };
 };
+
+
 
 // Display a notification message when there is a three markers in a row (horizontal, vertical or diagonal).
 
 // Check each vertical for 3 markers in a row.
 const verticalChecking = function verticalChecking() {
   for (i = 0; i < 3; i++) {
-    if (a[i] === b[i] && b[i] === c[i]) {
-      console.log(a[i]);
-    };
+    if (a[i] === b[i] && b[i] === c[i] && c[i] === playerX) {
+      playerXScore++;
+      console.log('Player X wins');
+    } else if (a[i] === b[i] && b[i] === c[i] && c[i] === playerO)
+      playerOScore++;
+    console.log('Player O wins');
   };
 };
 
 // Check each horizontal for 3 markers in a row.
+
 const horizontalChecking = function horizontalChecking() {
-  if (a[0] === a[1] && a[1] === a[2]) {
-    console.log(a[0]);
-  } else if (b[0] === b[1] && b[1] === b[2]) {
-    console.log(b[0]);
-  } else if (c[0] === c[1] && c[1] === c[2]) {
+  if (a[0] != 0 || a[0] === a[1] && a[1] === a[2] === playerX) {
+    playerXScore++;
+    console.log('Player X wins');
+  } else if (a[0] != 0 || a[0] === a[1] && a[1] === a[2] === playerO) {
+    playerOScore++;
+    console.log('Player O wins');
+  } else if (b[0] != 0 || b[0] === b[1] && b[1] === b[2] === playerX) {
+    playerXScore++;
+    console.log('Player X wins');
+  } else if (b[0] != 0 || b[0] === b[1] && b[1] === b[2] === playerX === playerO) {
+    playerOScore++;
+    console.log('Player O wins');
+  } else if (c[0] != 0 || c[0] === c[1] && c[1] === c[2] === playerX) {
     console.log(c[0]);
+    playerXScore++;
+    console.log('Player X wins');
+  } else if (c[0] != 0 || c[0] === c[1] && c[1] === c[2] === playerO) {
+    playerOScore++;
+    console.log('Player O wins');
   }
 };
 
 // Check diagonal up for 3 markers in a row.
 const diagonalupChecking = function diagonalupChecking() {
-    if (c[0] === b[1] && b[1] === a[2]) {
-      console.log(c[0]);
-    };
-  };
+  if (c[0] === b[1] && b[1] === a[2] === playerX) {
+    console.log('Player X wins');
+  } else if (c[0] === b[1] && b[1] === a[2] === playerO)
+    playerOScore++;
+  console.log('Player O wins');
+};
 
 // Check diagonal down for 3 markers in a row.
 const diagonaldownChecking = function diagonaldownChecking() {
-      if (a[0] === b[1] && b[1] === c[2]) {
-        console.log(c[2]);
-      };
-    };
-/*
-const markerInSquare = function markerInSquare(column) {
-  switch (column) {
-    case 'a':
-      duplicatedArray = a.slice();
-      break;
-    case 'b':
-      duplicatedArray = b.slice();
-      break;
-    case 'c':
-      duplicatedArray = c.slice();
-      break;
-    default:
-      let duplicatedArray = [];
-  }
-  for (let i = 0; i < 2; i++) {
-    if (duplicatedArray[i] === 0) {
-      if (turn === 'playerX') {
-        document.getElementById(column + i).innerHTML = "<img src='../images/x.png'>";
-        duplicatedArray[i] = 1;
-        turn = 'playerO';
-        document.getElementByClass('whosTurn').innerHTML = ("It's Player O's Turn");
-        document.getElementByClass('whosTurn').style.color = '#933EC5';
-      } else {
-        document.getElementById(column + i).innerHTML = "<img src='../images/o.png'>";
-        duplicatedArray[i] = playerO;
-        turn = 'playerX';
-        document.getElementByClass('whosTurn').innerHTML = ("It's Player X's Turn");
-        document.getElementByClass('whosTurn').style.color = '#006DF0';
-      };
-
-      break;
-    }
-
-    switch (column) {
-      case 'a':
-        a = duplicatedArray.slice();
-        break;
-      case 'b':
-        b = duplicatedArray.slice();
-        break;
-      case 'c':
-        c = duplicatedArray.slice();
-        break;
-      default:
-        let duplicatedArray = [];
-    }
-  }
+  if (a[0] === b[1] && b[1] === c[2] === playerX) {
+    console.log('Player X wins');
+  } else if (a[0] === b[1] && b[1] === c[2] === playerO)
+    playerOScore++;
+  console.log('Player O wins');
 };
-*/
-/* let copyColumns = new Array();
 
-for (let i = 0; i < 3; i++) {
-  var copy = JSON.parse(JSON.stringify(column1));
-  copy.column1 = [1, 0, 0];
-  copyColumns.push(copy);
-}
-
-console.log(copyColumns); */
-
-/*
-let column1 = [0, 0, 0];
-let column2 = [0, 0, 0];
-let column3 = [0, 0, 0];
-
-const squareChosen = function (turn, columnCopy) {
-  if (turn === playerX) {
-    for (let index = 0; index < column1.length; index++) {
-      columnCopy.slice();
-      return columnCopy;
-    }
-  }
+function checkingResult() {
+  verticalChecking();
+  horizontalChecking();
+  diagonalupChecking();
+  diagonaldownChecking();
 };
-*/
 
 // Display and update the score game and the number of ties.
 
