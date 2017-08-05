@@ -24,9 +24,9 @@ const playerX = 1;
 const playerO = 2;
 let turn;
 
-let a = [0, 0, 0];
-let b = [0, 0, 0];
-let c = [0, 0, 0];
+let a = [11, 22, 3];
+let b = [4, 5, 6];
+let c = [7, 8, 9];
 
 let playerXScore = 0;
 let playerOScore = 0;
@@ -84,14 +84,28 @@ const verticalChecking = function verticalChecking() {
   for (i = 0; i < 3; i++) {
     if (a[i] === b[i] && b[i] === c[i] && c[i] === playerX) {
       playerXScore++;
-      console.log('Player X wins');
-    } else if (a[i] === b[i] && b[i] === c[i] && c[i] === playerO)
+      console.log('Player X wins' + playerXScore++);
+      return;
+    } else if (a[i] === b[i] && b[i] === c[i] && c[i] === playerO) {
       playerOScore++;
-    console.log('Player O wins');
+      console.log('Player O wins ' + playerOScore++);
+      return;
+    } else {
+      console.log('there is not 3 markers in a row');
+    }
   };
 };
 
+/*if (condition1) {
+    block of code to be executed if condition1 is true
+} else if (condition2) {
+    block of code to be executed if the condition1 is false and condition2 is true
+} else {
+    block of code to be executed if the condition1 is false and condition2 is false
+}*/
 // Check each horizontal for 3 markers in a row.
+
+
 
 const horizontalChecking = function horizontalChecking() {
   if (a[0] != 0 || a[0] === a[1] && a[1] === a[2] === playerX) {
@@ -118,20 +132,37 @@ const horizontalChecking = function horizontalChecking() {
 
 // Check diagonal up for 3 markers in a row.
 const diagonalupChecking = function diagonalupChecking() {
-  if (c[0] === b[1] && b[1] === a[2] === playerX) {
-    console.log('Player X wins');
-  } else if (c[0] === b[1] && b[1] === a[2] === playerO)
-    playerOScore++;
-  console.log('Player O wins');
-};
+    if (c[0] === b[1] && b[1] === a[2] === playerX) {
+      playerXScore++;
+      console.log('Player X wins');
+    } else if (c[0] === b[1] && b[1] === a[2] === playerO) {
+      playerOScore++;
+      console.log('Player O wins');
+    } else {
+      console.log('there is not 3 markers in a row');
+    }
+  };
+
+  /*if (condition1) {
+      block of code to be executed if condition1 is true
+  } else if (condition2) {
+      block of code to be executed if the condition1 is false and condition2 is true
+  } else {
+      block of code to be executed if the condition1 is false and condition2 is false
+  }*/
 
 // Check diagonal down for 3 markers in a row.
 const diagonaldownChecking = function diagonaldownChecking() {
-  if (a[0] === b[1] && b[1] === c[2] === playerX) {
-    console.log('Player X wins');
-  } else if (a[0] === b[1] && b[1] === c[2] === playerO)
-    playerOScore++;
-  console.log('Player O wins');
+  for (i = 0; i < 3; i++) {
+    if (a[0] === b[1] && b[1] === c[2] === playerX) {
+      console.log('Player X wins');
+    } else if (a[0] === b[1] && b[1] === c[2] === playerO) {
+      playerOScore++;
+      console.log('Player O wins');
+    } else {
+      console.log('there is not 3 markers in a row');
+    }
+  }
 };
 
 function checkingResult() {
