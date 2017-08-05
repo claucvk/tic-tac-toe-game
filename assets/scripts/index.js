@@ -55,7 +55,7 @@ const markerSquare = function markerSquare(turn, columnName, columnIndex) {
         b[columnIndex] = playerX;
         return checkingResult();
         break;
-      case c[i]:
+      case c:
         c[columnIndex] = playerX;
         return checkingResult();
     }
@@ -82,13 +82,6 @@ const markerSquare = function markerSquare(turn, columnName, columnIndex) {
 
 // Check each vertical for 3 markers in a row.
 
-/*if (condition1) {
-    block of code to be executed if condition1 is true
-} else if (condition2) {
-    block of code to be executed if the condition1 is false and condition2 is true
-} else {
-    block of code to be executed if the condition1 is false and condition2 is false
-}*/
 
 /*if (condition1) {
     block of code to be executed if condition1 is true
@@ -119,32 +112,40 @@ const verticalChecking = function verticalChecking() {
 
 // Check each horizontal for 3 markers in a row.
 const horizontalChecking = function horizontalChecking() {
-  times++;
-  if (a[0] != 0 || a[0] === a[1] && a[1] === a[2] === playerX) {
+  if (a[0] === a[1] && a[1] === a[2] && a[2] === playerX) {
+    playerXScore++;
+    console.log('Player X wins ' + playerXScore);
+    return;
+  } else if (a[0] === a[1] && a[1] === a[2] && a[2] === playerO) {
+    playerOScore++;
+    console.log('Player O wins ' + playerOScore);
+    return;
+  } else if (b[0] === b[1] && b[1] === b[2] && b[2] === playerX) {
+    playerXScore++;
+    console.log('Player X wins ' + playerXScore);
+    return;
+  } else if (b[0] === b[1] && b[1] === b[2] && b[2] === playerO) {
+    playerOScore++;
+    console.log('Player O wins ' + playerOScore);
+    return;
+  } else if (c[0] === c[1] && c[1] === c[2] && c[2] === playerX) {
     playerXScore++;
     console.log('Player X wins');
-  } else if (a[0] != 0 || a[0] === a[1] && a[1] === a[2] === playerO) {
+    return;
+  } else if (c[0] === c[1] && c[1] === c[2]  && c[2] === playerO) {
     playerOScore++;
     console.log('Player O wins');
-  } else if (b[0] != 0 || b[0] === b[1] && b[1] === b[2] === playerX) {
-    playerXScore++;
-    console.log('Player X wins');
-  } else if (b[0] != 0 || b[0] === b[1] && b[1] === b[2] === playerX === playerO) {
-    playerOScore++;
-    console.log('Player O wins');
-  } else if (c[0] != 0 || c[0] === c[1] && c[1] === c[2] === playerX) {
-    console.log(c[0]);
-    playerXScore++;
-    console.log('Player X wins');
-  } else if (c[0] != 0 || c[0] === c[1] && c[1] === c[2] === playerO) {
-    playerOScore++;
-    console.log('Player O wins');
+  } else if (times === 9) {
+    ties++;
+    console.log('It is a tie ' + ties);
+    return;
+  } else {
+    console.log('there is not 3 markers in a row');
   }
 };
 
 // Check diagonal starts c[0] for 3 markers in a row.
 const diagonalLeftChecking = function diagonalLeftChecking() {
-    times++;
     if (c[0] === b[1] && b[1] === a[2] && a[2] === playerX) {
       playerXScore++;
       console.log('Player X wins ' + playerXScore);
@@ -172,7 +173,6 @@ const diagonalLeftChecking = function diagonalLeftChecking() {
 
 // Check diagonal starts a[0] for 3 markers in a row.
 const diagonalRightChecking = function diagonalRightChecking() {
-    times++;
     if (a[0] === b[1] && b[1] === c[2] && c[2] === playerX) {
       playerXScore++;
       console.log('Player X wins ' + playerXScore);
@@ -191,6 +191,7 @@ const diagonalRightChecking = function diagonalRightChecking() {
   };
 
 function checkingResult() {
+  times++;
   verticalChecking();
   horizontalChecking();
   diagonalLeftChecking();
