@@ -28,7 +28,8 @@ const signIn = function(data){
   });
 };
 
-const signOut = function(){
+const signOut = function(data){
+  console.log(data)
   return $.ajax({
     method: 'DELETE',
     url: app.host + '/sign-out/' + app.user.id,
@@ -39,13 +40,20 @@ const signOut = function(){
 };
 
 const changePassword = function(data){
+  console.log(data.credentials.old)
+  console.log(data.credentials.new)
   return $.ajax({
     method: 'PATCH',
     url: app.host + '/change-password/' + app.user.id,
     headers: {
       Authorization: 'Token token=' + app.user.token,
     },
-    data: data,
+    data: {
+      'passwords': {
+        'old': data.credentials.old,
+        'new': data.credentials.new
+      }
+    }
   });
 };
 

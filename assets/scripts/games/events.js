@@ -30,13 +30,11 @@ const onSignOut = function(event){
 
 const onChangePassword = function(event){
   event.preventDefault();
-  let data = getFormFields(event.target);
+  let data = getFormFields(this); //event.target
   api.changePassword(data)
   .done(ui.changePasswordSuccess)
   .fail(ui.fail);
 };
-
-
 
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp);
