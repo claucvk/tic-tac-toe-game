@@ -22,27 +22,96 @@ function restartGame() {
 // Identify Who is the turn, switch turns and place the marker in the square chosen
 const playerX = 1;
 const playerO = 2;
-let turn;
+let turn = 1;
 
-let a = [11, 22, 3];
-let b = [4, 5, 6];
-let c = [7, 8, 9];
+let a = [0, 0, 0];
+let b = [0, 0, 0];
+let c = [0, 0, 0];
 
 let playerXScore = 0;
 let playerOScore = 0;
 let ties = 0;
 let times = 0;
 
-/*$(document).ready(function () {
-  $('#c1').on('click', function (event) {
-    markerSquare(turn, columnName, columnIndex); // como introducir los parametros de abajo.
-  });
-});*/
+/* let cell1 = $('#a0')
+let cell2 = $('#a1')
+let cell3 = $('#a2')
+let cell4 = $('#b0')
+let cell5 = $('#b1')
+let cell6 = $('#b2')
+let cell7 = $('#c0')
+let cell8 = $('#c1')
+let cell9 = $('#c2')
 
-/*document.getElementByTagName(td).addEventListener('click', function () {
-  document.getElementById(td).innerHTML = "<img src='../images/x.png'>";
-});*/
+function playerClick (event) {
+  if (turn === playerX) {
+    cell1.html('X')
+    cell2.html('X')
+    cell3.html('X')
+    cell4.html('X')
+    cell5.html('X')
+    cell6.html('X')
+    cell7.html('X')
+    cell8.html('X')
+    cell9.html('X')
+  } else {
+    cell1.html('O')
+  }
+}
 
+$(() => {
+  $('#a0, #a1, #a2, #b0, #b1, #b2, #c0, #c1, #c2').click(markerSquare(turn, columnName, columnIndex))
+}) */
+
+let cell1 = $('#a0')
+let cell2 = $('#a1')
+let cell3 = $('#a2')
+let cell4 = $('#b0')
+let cell5 = $('#b1')
+let cell6 = $('#b2')
+let cell7 = $('#c0')
+let cell8 = $('#c1')
+let cell9 = $('#c2')
+
+$( "#a0" ).click(function() {
+    if (turn === playerX) {
+    cell1.html('X');
+    //turn = 2
+  } else {
+    cell1.html('O');
+    //turn = 1
+    }
+   markerSquare(turn, a, 0);
+});
+
+$( "#a1" ).click(function() {
+    if (turn === playerX) {
+    cell2.html('X');
+  } else {
+    cell2.html('O');
+    }
+   markerSquare(turn, a, 1);
+});
+$( "#a2" ).click(function() {
+    if (turn === playerX) {
+    cell3.html('X');
+  } else {
+    cell3.html('O');
+    }
+   markerSquare(turn, a, 2);
+});
+
+const playerTurn = function playerTurn() {
+    if (turn === playerX) {
+      turn = playerO
+      alert('Now is turn' + turn)
+      return newturn
+    } else {
+      turn = playerO
+      alert('Now is turn' + turn)
+      return newturn
+    }
+}
 const markerSquare = function markerSquare(turn, columnName, columnIndex) {
   if (turn === playerX) {
     console.log("It's Player X's Turn");
@@ -61,6 +130,7 @@ const markerSquare = function markerSquare(turn, columnName, columnIndex) {
     }
 
   } else if (turn === playerO) {
+    playerClick ()
     console.log("It's Player O's Turn");
     switch (columnName) {
       case a:
@@ -82,14 +152,6 @@ const markerSquare = function markerSquare(turn, columnName, columnIndex) {
 
 // Check each vertical for 3 markers in a row.
 
-
-/*if (condition1) {
-    block of code to be executed if condition1 is true
-} else if (condition2) {
-    block of code to be executed if the condition1 is false and condition2 is true
-} else {
-    block of code to be executed if the condition1 is false and condition2 is false
-}*/
 const verticalChecking = function verticalChecking() {
   for (i = 0; i < 3; i++) {
     if (a[i] === b[i] && b[i] === c[i] && c[i] === playerX) {
@@ -163,14 +225,6 @@ const diagonalLeftChecking = function diagonalLeftChecking() {
     }
   };
 
-/*if (condition1) {
-      block of code to be executed if condition1 is true
-  } else if (condition2) {
-      block of code to be executed if the condition1 is false and condition2 is true
-  } else {
-      block of code to be executed if the condition1 is false and condition2 is false
-  }*/
-
 // Check diagonal starts a[0] for 3 markers in a row.
 const diagonalRightChecking = function diagonalRightChecking() {
     if (a[0] === b[1] && b[1] === c[2] && c[2] === playerX) {
@@ -192,10 +246,12 @@ const diagonalRightChecking = function diagonalRightChecking() {
 
 function checkingResult() {
   times++;
+  playerTurn()
   verticalChecking();
   horizontalChecking();
   diagonalLeftChecking();
   diagonalRightChecking();
+
 };
 
 // Display and update the score game and the number of ties.

@@ -14,8 +14,8 @@
     <body class="container-fluid">
       <header>
         <nav>
-          <a href="#">Log In</a>
-          <a href="#">Sign Up</a>
+          <a href="#" class="login">Log In</a>
+          <a href="#" class="logout">Log Out</a>
         </nav>
       </header>
       <main>
@@ -27,20 +27,20 @@
 
         <div class="boardGame">
           <table>
-       <tr>
-          <td class="cell"</td>
-          <td class="cell"</td>
-          <td class="cell"></td>
+       <tr class="a">
+          <td id="a0"></td>
+          <td id="a1"></td>
+          <td id="a2"></td>
         </tr>
-        <tr>
-          <td class="cell"></td>
-          <td class="cell"></td>
-          <td class="cell"></td>
+        <tr class="b">
+          <td id="b0"></td>
+          <td id="b1"></td>
+          <td id="b2"></td>
         </tr>
-        <tr>
-          <td class="cell"></td>
-          <td class="cell"></td>
-          <td class="cell"></td>
+        <tr class="c">
+          <td id="c0"></td>
+          <td id="c1"></td>
+          <td id="c2"></td>
         </tr>
      <br>
    </table>
@@ -64,6 +64,44 @@
         <form>
           <input type="button" value="Restart Game" onclick="restartGame()">
         </form>
+        <br>
+        <div>
+        <form id="sign-up">
+          <fieldset>
+            <legend>Sign Up Below</legend>
+            <input type="text" name="credentials[email]" placeholder="Email">
+            <input type="password" name="credentials[password]" placeholder="Create Password">
+            <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+            <input type="submit" name="submit" value="Sign Up!">
+          </fieldset>
+        </form>
+      </div>
+
+      <div>
+        <form id="sign-in">
+          <fieldset>
+            <legend>Login Below</legend>
+            <input type="text" name="credentials[email]" placeholder="Email">
+            <input type="password" name="credentials[password]" placeholder="Password">
+            <input type="submit" name="submit" value="Sign In!">
+          </fieldset>
+        </form>
+      </div>
+
+      <div>
+        <form id="change-password">
+          <fieldset>
+            <legend>Change Password Below</legend>
+            <input type="password" name="credentials[old]" placeholder="Old Password">
+            <input type="password" name="credentials[new]" placeholder="New Password">
+            <input type="submit" name="submit" value="Submit Changes">
+          </fieldset>
+        </form>
+      </div>
+
+      <form class="sign-out" id="signOut">
+      <button id="sign-out" type="submit" disabled> Sign Out </button>
+      </form>
       </main>
     </body>
 </html>
