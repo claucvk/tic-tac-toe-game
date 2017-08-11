@@ -9,10 +9,3 @@ require('./assets/scripts/index.js');
 
 // styles
 require('./assets/styles/index.scss');
-
-const authEvents = require('./games/events.js')
-
-// On document ready
-$(() => {
-  authEvents.addHandlers()
-})

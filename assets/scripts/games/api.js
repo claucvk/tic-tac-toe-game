@@ -1,16 +1,57 @@
 'use strict'
+const app = require('../app');
+// const getFormFields = require('../../../lib/get-form-fields.js');
 
-const signUp = (data) =>
-  new Promise(function (resolve, reject) {
-    if (Math.random() > 0.5) {
-      resolve('in signUp')
-    } else {
-      const error = new Error('Random')
-      error.data = data
-      reject(error)
+//authApi.signUp(authUi.success, authUi.failure, data);
+// data -> viene  del evento form submit
+const signUp = function(data){
+  console.log(data);
+  return $.ajax({
+    url: app.host + '/sign-up/',
+    method: 'POST',
+    data: {
+      'credentials': {
+        'email': data.credentials.email,
+        'password': data.credentials.password,
+        'password_confirmation': data.credentials.password
+      }
     }
-  })
+  });
+};
+
+const signIn = function(data){
+  console.log(data);
+  return $.ajax({
+    url: app.host + '/sign-in/',
+    method: 'POST',
+    data,
+  });
+};
+
+const signOut = function(){
+  return $.ajax({
+    method: 'DELETE',
+    url: app.host + '/sign-out/' + app.user.id,
+    headers: {
+      Authorization: 'Token token=' + app.user.token,
+    },
+  });
+};
+
+const changePassword = function(data){
+  return $.ajax({
+    method: 'PATCH',
+    url: app.host + '/change-password/' + app.user.id,
+    headers: {
+      Authorization: 'Token token=' + app.user.token,
+    },
+    data: data,
+  });
+};
 
 module.exports = {
-  signUp
-}
+  signUp,
+  signIn,
+  signOut,
+  changePassword,
+};

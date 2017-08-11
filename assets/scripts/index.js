@@ -7,6 +7,13 @@ $(() => {
   setAPIOrigin(location, config);
 });
 
+const events = require('./games/events.js')
+
+// On document ready
+$(() => {
+  events.addHandlers()
+})
+
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')
 
