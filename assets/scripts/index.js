@@ -20,8 +20,10 @@ $(() => {
 require('./example');
 
 // Game logic
-function restartGame() {
-  document.location.href = '';
+const resetGame = function resetGame () {
+  a = [0, 0, 0];
+  b = [0, 0, 0];
+  c = [0, 0, 0];
 }
 
 // Identify Who is the turn, switch turns and place the marker in the square chosen

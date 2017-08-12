@@ -3,7 +3,11 @@
 
 <head>
   <title>Tic Tac Toe Game</title>
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
   <!-- Do not add `link` tags-->
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
@@ -16,8 +20,120 @@
 <body class="container-fluid">
   <header>
     <nav>
-      <a href="#" class="login">Log In</a>
-      <a href="#" class="logout">Log Out</a>
+      
+    <div class="container">
+        <!-- Trigger the modal with a button -->
+        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Sign Up / Sign In</button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+          <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Sign Up</h4>
+              </div>
+              <div class="modal-body">
+                <form id="sign-up">
+                  <fieldset>
+                    <input type="text" name="credentials[email]" placeholder="Email">
+                    <input type="password" name="credentials[password]" placeholder="Create Password">
+                    <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+                    <input type="submit" name="submit" value="Sign Up!">
+                  </fieldset>
+                </form>
+              </div>
+              <div class="modal-header">
+                <h4 class="modal-title">Sign In</h4>
+              </div>
+              <div class="modal-body">
+                <div>
+                  <form id="sign-in">
+                    <fieldset>
+                      <input type="text" name="credentials[email]" placeholder="Email">
+                      <input type="password" name="credentials[password]" placeholder="Password">
+                      <input type="submit" name="submit" value="Sign In!">
+                    </fieldset>
+                  </form>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <div class="container">
+        <!-- Trigger the modal with a button -->
+        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal2">Change Password</button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal2" role="dialog">
+          <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">Change Password</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+              <div class="modal-body">
+                <div>
+                  <form id="change-password">
+                    <fieldset>
+                      <input type="password" name="credentials[old]" placeholder="Old Password">
+                      <input type="password" name="credentials[new]" placeholder="New Password">
+                      <input type="submit" name="submit" value="Submit Changes">
+                    </fieldset>
+                  </form>
+                </div>              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <!-- Trigger the modal with a button -->
+        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal3">Games History</button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal3" role="dialog">
+          <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">Games History</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+              <div class="modal-body">
+                <div>
+                <form class="view-games" id="view-games">
+                  <input type="submit" name="submit" value="View Games!">
+                </form>
+              </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <form class="sign-out" id="sign-out">
+          <input type="submit" name="submit" value="Sign out!">
+        </form>
+      </div>
+
     </nav>
   </header>
   <main>
@@ -64,55 +180,12 @@
     </div>
     <br>
     <form>
-      <input type="button" value="Restart Game" onclick="restartGame()">
+      <input id="play-again" type="button" value="Play Again" onclick="resetGame()">
     </form>
     <br>
-    <div>
-
-      <form id="sign-up">
-        <fieldset>
-          <legend>Sign Up Below</legend>
-          <input type="text" name="credentials[email]" placeholder="Email">
-          <input type="password" name="credentials[password]" placeholder="Create Password">
-          <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
-          <input type="submit" name="submit" value="Sign Up!">
-        </fieldset>
-      </form>
-    </div>
-
-    <div>
-
-      <form id="sign-in">
-        <fieldset>
-          <legend>Login Below</legend>
-          <input type="text" name="credentials[email]" placeholder="Email">
-          <input type="password" name="credentials[password]" placeholder="Password">
-          <input type="submit" name="submit" value="Sign In!">
-        </fieldset>
-      </form>
-    </div>
-
-    <div>
-      <form id="change-password">
-        <fieldset>
-          <legend>Change Password Below</legend>
-          <input type="password" name="credentials[old]" placeholder="Old Password">
-          <input type="password" name="credentials[new]" placeholder="New Password">
-          <input type="submit" name="submit" value="Submit Changes">
-        </fieldset>
-      </form>
-    </div>
 
     <form class="start-game" id="start-game">
       <input type="submit" name="submit" value="Start game!">
-    </form>
-
-    <form class="view-games" id="view-games">
-      <input type="submit" name="submit" value="View Games!">
-    </form>
-
-    <form class="sign-out" id="sign-out">
-      <input type="submit" name="submit" value="Sign out!">
     </form>
 
     <form class="update-game" id="update-game" hidden>
