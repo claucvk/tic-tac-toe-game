@@ -36,11 +36,20 @@ const onChangePassword = function(event){
   .fail(ui.fail);
 };
 
+const onCreateGame = function(event){
+  event.preventDefault();
+  let data = getFormFields(this); //event.target
+  api.create(data)
+  .done(ui.onCreateSuccess)
+  .fail(ui.fail)
+}
+
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp);
   $('#sign-in').on('submit', onSignIn);
   $('#sign-out').on('submit', onSignOut);
   $('#change-password').on('submit', onChangePassword);
+  $('#start-game').on('submit', onCreateGame)
 };
 
 module.exports = {

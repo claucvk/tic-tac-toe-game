@@ -10,6 +10,11 @@ const signInSuccess = (data) => {
   // Mostrar un mensaje al usuario de que fue un signin succesful. Buscar el lugar en html y poner el código aqui.
 };
 
+const onCreateSuccess = () => {
+  console.log("New game created");
+  alert('New game created')
+};
+
 //remove me before code-along
 const signOutSuccess = () => {
   app.user = null;
@@ -36,5 +41,6 @@ module.exports = {
   success,
   signInSuccess,
   signOutSuccess,
-  changePasswordSuccess
+  changePasswordSuccess,
+  onCreateSuccess,
 };
