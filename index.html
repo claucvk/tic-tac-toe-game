@@ -1,33 +1,35 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>Tic Tac Toe Game</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `link` tags-->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<head>
+  <title>Tic Tac Toe Game</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `script` tags-->
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <body class="container-fluid">
-      <header>
-        <nav>
-          <a href="#" class="login">Log In</a>
-          <a href="#" class="logout">Log Out</a>
-        </nav>
-      </header>
-      <main>
-        <h1>TIC TAC TOE GAME</h1>
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
-        <div>
-          <p class="whosTurn">It's Player X's Turn</p>
-        </div>
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
 
-        <div class="boardGame">
-          <table>
-       <tr class="a">
+<body class="container-fluid">
+  <header>
+    <nav>
+      <a href="#" class="login">Log In</a>
+      <a href="#" class="logout">Log Out</a>
+    </nav>
+  </header>
+  <main>
+    <h1>TIC TAC TOE GAME</h1>
+
+    <div>
+      <p class="whosTurn">It's Player X's Turn</p>
+    </div>
+
+    <div class="boardGame">
+      <table>
+        <tr class="a">
           <td id="a0"></td>
           <td id="a1"></td>
           <td id="a2"></td>
@@ -42,13 +44,13 @@
           <td id="c1"></td>
           <td id="c2"></td>
         </tr>
-     <br>
-   </table>
-        </div>
         <br>
-        <div class="scoreGame">
-          <table class=tableScoreGame>
-       <tr>
+      </table>
+    </div>
+    <br>
+    <div class="scoreGame">
+      <table class=tableScoreGame>
+        <tr>
           <td> PLAYER O </td>
           <td> TIES </td>
           <td> PLAYER X </td>
@@ -58,57 +60,67 @@
           <td></td>
           <td></td>
         </tr>
-        </table>
-        </div>
-        <br>
-        <form>
-          <input type="button" value="Restart Game" onclick="restartGame()">
-        </form>
-        <br>
-        <div>
+      </table>
+    </div>
+    <br>
+    <form>
+      <input type="button" value="Restart Game" onclick="restartGame()">
+    </form>
+    <br>
+    <div>
 
-        <form id="sign-up">
-          <fieldset>
-            <legend>Sign Up Below</legend>
-            <input type="text" name="credentials[email]" placeholder="Email">
-            <input type="password" name="credentials[password]" placeholder="Create Password">
-            <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
-            <input type="submit" name="submit" value="Sign Up!">
-          </fieldset>
-        </form>
-      </div>
-
-      <div>
-
-        <form id="sign-in">
-          <fieldset>
-            <legend>Login Below</legend>
-            <input type="text" name="credentials[email]" placeholder="Email">
-            <input type="password" name="credentials[password]" placeholder="Password">
-            <input type="submit" name="submit" value="Sign In!">
-          </fieldset>
-        </form>
-      </div>
-
-      <div>
-        <form id="change-password">
-          <fieldset>
-            <legend>Change Password Below</legend>
-            <input type="password" name="credentials[old]" placeholder="Old Password">
-            <input type="password" name="credentials[new]" placeholder="New Password">
-            <input type="submit" name="submit" value="Submit Changes">
-          </fieldset>
-        </form>
-      </div>
-
-      <form class="sign-out" id="sign-out">
-      <input type="submit" name="submit" value="Sign out!">
+      <form id="sign-up">
+        <fieldset>
+          <legend>Sign Up Below</legend>
+          <input type="text" name="credentials[email]" placeholder="Email">
+          <input type="password" name="credentials[password]" placeholder="Create Password">
+          <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+          <input type="submit" name="submit" value="Sign Up!">
+        </fieldset>
       </form>
+    </div>
 
-      <form class="start-game" id="start-game">
+    <div>
+
+      <form id="sign-in">
+        <fieldset>
+          <legend>Login Below</legend>
+          <input type="text" name="credentials[email]" placeholder="Email">
+          <input type="password" name="credentials[password]" placeholder="Password">
+          <input type="submit" name="submit" value="Sign In!">
+        </fieldset>
+      </form>
+    </div>
+
+    <div>
+      <form id="change-password">
+        <fieldset>
+          <legend>Change Password Below</legend>
+          <input type="password" name="credentials[old]" placeholder="Old Password">
+          <input type="password" name="credentials[new]" placeholder="New Password">
+          <input type="submit" name="submit" value="Submit Changes">
+        </fieldset>
+      </form>
+    </div>
+
+    <form class="start-game" id="start-game">
       <input type="submit" name="submit" value="Start game!">
-      </form>
+    </form>
 
-      </main>
-    </body>
+    <form class="view-games" id="view-games">
+      <input type="submit" name="submit" value="View Games!">
+    </form>
+
+    <form class="sign-out" id="sign-out">
+      <input type="submit" name="submit" value="Sign out!">
+    </form>
+
+    <form class="update-game" id="update-game" hidden>
+      <input id="index" name="game[cell][index]" type="text" value="">
+      <input id="value" name="game[cell][value]" type="text" value="">
+      <input id="over" name="game[over]" type="text" value="">
+    </form>
+  </main>
+</body>
+
 </html>

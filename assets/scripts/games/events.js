@@ -43,6 +43,22 @@ const onCreateGame = function(event){
   .done(ui.onCreateSuccess)
   .fail(ui.fail)
 }
+// event handler to update game states
+const onUpdateGame = function (index, value, over) {
+  event.preventDefault();
+  //let data = getFormFields(this); //event.target
+  api.updateMoves(index, value, over)
+  .done(ui.onUpdateSuccess)
+  .fail(ui.fail)
+}
+
+const onViewGames = function (event) {
+  event.preventDefault();
+  let data = getFormFields(this); //event.target
+  api.gameView(data)
+  .done(ui.onViewSuccess)
+  .fail(ui.fail)
+}
 
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp);
@@ -50,6 +66,8 @@ const addHandlers = () => {
   $('#sign-out').on('submit', onSignOut);
   $('#change-password').on('submit', onChangePassword);
   $('#start-game').on('submit', onCreateGame)
+  $('#update-game').on('submit', onUpdateGame)
+  $('#view-games').on('submit', onViewGames)
 };
 
 module.exports = {
