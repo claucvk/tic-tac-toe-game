@@ -24,12 +24,10 @@ function restartGame() {
   document.location.href = '';
 }
 
-// Sign up/ sign in to play the game.
-
 // Identify Who is the turn, switch turns and place the marker in the square chosen
 const playerX = 1;
 const playerO = 2;
-let turn = 1;
+let turn = playerX;
 
 let a = [0, 0, 0];
 let b = [0, 0, 0];
@@ -39,36 +37,6 @@ let playerXScore = 0;
 let playerOScore = 0;
 let ties = 0;
 let times = 0;
-
-/* let cell1 = $('#a0')
-let cell2 = $('#a1')
-let cell3 = $('#a2')
-let cell4 = $('#b0')
-let cell5 = $('#b1')
-let cell6 = $('#b2')
-let cell7 = $('#c0')
-let cell8 = $('#c1')
-let cell9 = $('#c2')
-
-function playerClick (event) {
-  if (turn === playerX) {
-    cell1.html('X')
-    cell2.html('X')
-    cell3.html('X')
-    cell4.html('X')
-    cell5.html('X')
-    cell6.html('X')
-    cell7.html('X')
-    cell8.html('X')
-    cell9.html('X')
-  } else {
-    cell1.html('O')
-  }
-}
-
-$(() => {
-  $('#a0, #a1, #a2, #b0, #b1, #b2, #c0, #c1, #c2').click(markerSquare(turn, columnName, columnIndex))
-}) */
 
 let cell1 = $('#a0')
 let cell2 = $('#a1')
@@ -99,6 +67,7 @@ $( "#a1" ).click(function() {
     }
    markerSquare(turn, a, 1);
 });
+
 $( "#a2" ).click(function() {
     if (turn === playerX) {
     cell3.html('X');
@@ -108,59 +77,91 @@ $( "#a2" ).click(function() {
    markerSquare(turn, a, 2);
 });
 
+$( "#b0" ).click(function() {
+    if (turn === playerX) {
+    cell4.html('X');
+    //turn = 2
+  } else {
+    cell4.html('O');
+    //turn = 1
+    }
+   markerSquare(turn, b, 0);
+});
+
+$( "#b1" ).click(function() {
+    if (turn === playerX) {
+    cell5.html('X');
+    //turn = 2
+  } else {
+    cell5.html('O');
+    //turn = 1
+    }
+   markerSquare(turn, b, 1);
+});
+
+$( "#b2" ).click(function() {
+    if (turn === playerX) {
+    cell6.html('X');
+    //turn = 2
+  } else {
+    cell6.html('O');
+    //turn = 1
+    }
+   markerSquare(turn, b, 2);
+});
+
+$( "#c0" ).click(function() {
+    if (turn === playerX) {
+    cell7.html('X');
+    //turn = 2
+  } else {
+    cell7.html('O');
+    //turn = 1
+    }
+   markerSquare(turn, c, 0);
+});
+
+$( "#c1" ).click(function() {
+    if (turn === playerX) {
+    cell8.html('X');
+    //turn = 2
+  } else {
+    cell8.html('O');
+    //turn = 1
+    }
+   markerSquare(turn, c, 1);
+});
+
+$( "#c2" ).click(function() {
+    if (turn === playerX) {
+    cell9.html('X');
+    //turn = 2
+  } else {
+    cell9.html('O');
+    //turn = 1
+    }
+   markerSquare(turn, c, 2);
+});
+
 const playerTurn = function playerTurn() {
     if (turn === playerX) {
       turn = playerO
       alert('Now is turn' + turn)
-      return newturn
+      return turn
     } else {
-      turn = playerO
+      turn = playerX
       alert('Now is turn' + turn)
-      return newturn
+      return turn
     }
 }
 const markerSquare = function markerSquare(turn, columnName, columnIndex) {
-  if (turn === playerX) {
-    console.log("It's Player X's Turn");
-    switch (columnName) {
-      case a:
-        a[columnIndex] = playerX;
-        return checkingResult();
-        break;
-      case b:
-        b[columnIndex] = playerX;
-        return checkingResult();
-        break;
-      case c:
-        c[columnIndex] = playerX;
-        return checkingResult();
-    }
-
-  } else if (turn === playerO) {
-    playerClick ()
-    console.log("It's Player O's Turn");
-    switch (columnName) {
-      case a:
-        a[columnIndex] = playerO;
-        return checkingResult();
-        break;
-      case b:
-        b[columnIndex] = playerO;
-        return checkingResult();
-        break;
-      case c:
-        c[columnIndex] = playerO;
-        return checkingResult();
-    }
-  };
+  columnName[columnIndex] = turn;
+  checkingResult();
 };
 
-// Display a notification message when there is a three markers in a row (horizontal, vertical or diagonal).
-
 // Check each vertical for 3 markers in a row.
-
 const verticalChecking = function verticalChecking() {
-  for (i = 0; i < 3; i++) {
+  for (let i = 0; i < 3; i++) {
     if (a[i] === b[i] && b[i] === c[i] && c[i] === playerX) {
       playerXScore++;
       console.log('Player X wins ' + playerXScore);
@@ -253,25 +254,15 @@ const diagonalRightChecking = function diagonalRightChecking() {
 
 function checkingResult() {
   times++;
-  playerTurn()
   verticalChecking();
   horizontalChecking();
   diagonalLeftChecking();
   diagonalRightChecking();
-
+  playerTurn();
+  console.log(a);
+  console.log(b);
+  console.log(c);
 };
-
-// Display and update the score game and the number of ties.
-
-// Display the user total lost games.
-
-// Display the user total won games.
-
-// Display the user total ties.
-
-// Change the password.
-
-// Log out of the game.
 
 function restartGame() {
   document.location.href = '';
