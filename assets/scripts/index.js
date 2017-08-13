@@ -19,35 +19,21 @@ $(() => {
 // use require without a reference to ensure a file is bundled
 require('./example');
 
-// Game logic
-/*const replay = function replay () {
-  events.replay()
-  $('.box').on('click', checkingResult)
-  a = [0, 0, 0];
-  b = [0, 0, 0];
-  c = [0, 0, 0];
-} */
-
-/* function replay (table) {
-  table.find('td').each(function () {
-    $(this).removeClass('a0')
-  })
-} */
-/* function replay () {
-$(document).ready(function(){
-$("#stop").click(function(){
-        $(".box").stop();
-    });
-});
-} */
-
 $(function newGame () {
   $('.play-again').on('click', function (event) {
-    markerSquare()
     $('.box').html(' ')
-    a = []
-    b = []
-    c = []
+    a = [0, 0, 0]
+    b = [0, 0, 0]
+    c = [0, 0, 0]
+    cell1.html('')
+    cell2.html('')
+    cell3.html('')
+    cell4.html('')
+    cell5.html('')
+    cell6.html('')
+    cell7.html('')
+    cell8.html('')
+    cell9.html('')
   })
 })
 // Identify Who is the turn, switch turns and place the marker in the square chosen
@@ -197,16 +183,19 @@ const verticalChecking = function verticalChecking() {
       playerXScore++;
       playerXResults.html(playerXScore)
       results.html('Player X wins ');
+      $('.boardGame').removeClass('disable')
       return;
     } else if (a[i] === b[i] && b[i] === c[i] && c[i] === playerO) {
       playerOScore++;
       playerOResults.html(playerOScore)
       results.html('Player O wins ');
+      $('.boardGame').removeClass('disable')
       return;
     }  else if (times === 9) {
       ties++;
       tiesResults.html(ties)
       results.html("It's a tie");
+      $('.boardGame').removeClass('disable')
       return;
     }  else {
       console.log('there is not 3 markers in a row');
@@ -220,35 +209,42 @@ const horizontalChecking = function horizontalChecking() {
     playerXScore++;
     playerXResults.html(playerXScore)
     results.html('Player X wins ');
+    $('.boardGame').removeClass('disable')
     return;
   } else if (a[0] === a[1] && a[1] === a[2] && a[2] === playerO) {
     playerOScore++;
     playerOResults.html(playerOScore)
     results.html('Player O wins ');
+    $('.boardGame').removeClass('disable')
     return;
   } else if (b[0] === b[1] && b[1] === b[2] && b[2] === playerX) {
     playerXScore++;
     playerXResults.html(playerXScore)
     results.html('Player X wins ');
+    $('.boardGame').removeClass('disable')
     return;
   } else if (b[0] === b[1] && b[1] === b[2] && b[2] === playerO) {
     playerOScore++;
     playerOResults.html(playerOScore)
     results.html('Player O wins ');
+    $('.boardGame').removeClass('disable')
     return;
   } else if (c[0] === c[1] && c[1] === c[2] && c[2] === playerX) {
     playerXScore++;
     playerXResults.html(playerXScore)
     results.html('Player X wins ');
+    $('.boardGame').removeClass('disable')
     return;
   } else if (c[0] === c[1] && c[1] === c[2]  && c[2] === playerO) {
     playerOScore++;
     playerOResults.html(playerOScore)
     results.html('Player O wins ');
+    $('.boardGame').removeClass('disable')
   } else if (times === 9) {
     ties++;
     tiesResults.html(ties)
     results.html("It's a tie");
+    $('.boardGame').removeClass('disable')
     return;
   } else {
     console.log('there is not 3 markers in a row');
@@ -261,16 +257,19 @@ const diagonalLeftChecking = function diagonalLeftChecking() {
       playerXScore++;
       playerXResults.html(playerXScore)
       results.html('Player X wins ');
+      $('.boardGame').removeClass('disable')
       return;
     } else if (c[0] === b[1] && b[1] === a[2] && a[2] === playerO) {
       playerOScore++;
       playerOResults.html(playerOScore)
       results.html('Player O wins ');
+      $('.boardGame').removeClass('disable')
       return;
     } else if (times === 9) {
       ties++;
       tiesResults.html(ties)
       results.html("It's a tie");
+      $('.boardGame').removeClass('disable')
       return;
     } else {
       console.log('there is not 3 markers in a row');
@@ -283,16 +282,19 @@ const diagonalRightChecking = function diagonalRightChecking() {
       playerXScore++;
       playerXResults.html(playerXScore)
       results.html('Player X wins ');
+      $('.boardGame').removeClass('disable')
       return;
     } else if (a[0] === b[1] && b[1] === c[2] && c[2] === playerO) {
       playerOScore++;
       playerOResults.html(playerOScore)
       results.html('Player O wins ');
+      $('.boardGame').removeClass('disable')
       return;
     } else if (times === 9) {
       ties++;
       tiesResults.html(ties)
       results.html("It's a tie");
+      $('.boardGame').removeClass('disable')
       return;
     } else {
       console.log('there is not 3 markers in a row');
