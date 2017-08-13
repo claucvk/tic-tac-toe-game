@@ -35,11 +35,6 @@ let a = [0, 0, 0];
 let b = [0, 0, 0];
 let c = [0, 0, 0];
 
-let playerXScore = 0;
-let playerOScore = 0;
-let ties = 0;
-let times = 0;
-
 let cell1 = $('#a0')
 let cell2 = $('#a1')
 let cell3 = $('#a2')
@@ -161,19 +156,31 @@ const markerSquare = function markerSquare(turn, columnName, columnIndex) {
   checkingResult();
 };
 
+let playerXResults = $('#playerX')
+let tiesResults = $('#ties')
+let playerOResults = $('#playerO')
+
+let playerXScore = 0;
+let playerOScore = 0;
+let ties = 0;
+let times = 0;
+
 // Check each vertical for 3 markers in a row.
 const verticalChecking = function verticalChecking() {
   for (let i = 0; i < 3; i++) {
     if (a[i] === b[i] && b[i] === c[i] && c[i] === playerX) {
       playerXScore++;
+      playerXResults.html(playerXScore)
       console.log('Player X wins ' + playerXScore);
       return;
     } else if (a[i] === b[i] && b[i] === c[i] && c[i] === playerO) {
       playerOScore++;
+      playerOResults.html(playerOScore)
       console.log('Player O wins ' + playerOScore);
       return;
     }  else if (times === 9) {
       ties++;
+      tiesResults.html(ties)
       console.log('It is a tie ' + ties);
       return;
     }  else {
@@ -186,29 +193,36 @@ const verticalChecking = function verticalChecking() {
 const horizontalChecking = function horizontalChecking() {
   if (a[0] === a[1] && a[1] === a[2] && a[2] === playerX) {
     playerXScore++;
+    playerXResults.html(playerXScore)
     console.log('Player X wins ' + playerXScore);
     return;
   } else if (a[0] === a[1] && a[1] === a[2] && a[2] === playerO) {
     playerOScore++;
+    playerOResults.html(playerOScore)
     console.log('Player O wins ' + playerOScore);
     return;
   } else if (b[0] === b[1] && b[1] === b[2] && b[2] === playerX) {
     playerXScore++;
+    playerXResults.html(playerXScore)
     console.log('Player X wins ' + playerXScore);
     return;
   } else if (b[0] === b[1] && b[1] === b[2] && b[2] === playerO) {
     playerOScore++;
+    playerOResults.html(playerOScore)
     console.log('Player O wins ' + playerOScore);
     return;
   } else if (c[0] === c[1] && c[1] === c[2] && c[2] === playerX) {
     playerXScore++;
+    playerXResults.html(playerXScore)
     console.log('Player X wins');
     return;
   } else if (c[0] === c[1] && c[1] === c[2]  && c[2] === playerO) {
     playerOScore++;
+    playerOResults.html(playerOScore)
     console.log('Player O wins');
   } else if (times === 9) {
     ties++;
+    tiesResults.html(ties)
     console.log('It is a tie ' + ties);
     return;
   } else {
@@ -220,14 +234,17 @@ const horizontalChecking = function horizontalChecking() {
 const diagonalLeftChecking = function diagonalLeftChecking() {
     if (c[0] === b[1] && b[1] === a[2] && a[2] === playerX) {
       playerXScore++;
+      playerXResults.html(playerXScore)
       console.log('Player X wins ' + playerXScore);
       return;
     } else if (c[0] === b[1] && b[1] === a[2] && a[2] === playerO) {
       playerOScore++;
+      playerOResults.html(playerOScore)
       console.log('Player O wins ' + playerOScore);
       return;
     } else if (times === 9) {
       ties++;
+      tiesResults.html(ties)
       console.log('It is a tie ' + ties);
       return;
     } else {
@@ -239,14 +256,17 @@ const diagonalLeftChecking = function diagonalLeftChecking() {
 const diagonalRightChecking = function diagonalRightChecking() {
     if (a[0] === b[1] && b[1] === c[2] && c[2] === playerX) {
       playerXScore++;
+      playerXResults.html(playerXScore)
       console.log('Player X wins ' + playerXScore);
       return;
     } else if (a[0] === b[1] && b[1] === c[2] && c[2] === playerO) {
       playerOScore++;
+      playerOResults.html(playerOScore)
       console.log('Player O wins ' + playerOScore);
       return;
     } else if (times === 9) {
       ties++;
+      tiesResults.html(ties)
       console.log('It is a tie ' + ties);
       return;
     } else {
