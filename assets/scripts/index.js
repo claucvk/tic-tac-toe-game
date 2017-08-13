@@ -140,14 +140,16 @@ $( "#c2" ).click(function() {
    markerSquare(turn, c, 2);
 });
 
+let playersTurn = $('.whosTurn')
+
 const playerTurn = function playerTurn() {
     if (turn === playerX) {
       turn = playerO
-      alert('Now is turn' + turn)
+      playersTurn.html("It's Player X's Turn")
       return turn
     } else {
       turn = playerX
-      alert('Now is turn' + turn)
+      playersTurn.html("It's Player O's Turn")
       return turn
     }
 }
