@@ -66,7 +66,7 @@
           </div>
         </div>
       </div>
-
+      <br>
       <div class="container">
         <!-- Trigger the modal with a button -->
         <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal2">Change Password</button>
@@ -99,7 +99,7 @@
           </div>
         </div>
       </div>
-
+      <br>
       <div class="container">
         <!-- Trigger the modal with a button -->
         <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal3">Games History</button>
@@ -119,6 +119,22 @@
                   <form class="view-games" id="view-games">
                     <input type="submit" name="submit" value="View Games!">
                   </form>
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th> Game ID </th>
+                        <th> Moves </th>
+                        <th> Over </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td></td>
+                        <td> </td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
               </div>
               <div class="modal-footer">
@@ -128,7 +144,7 @@
           </div>
         </div>
       </div>
-
+      <br>
       <div>
         <form class="sign-out" id="sign-out">
           <input type="submit" name="submit" value="Sign out!">
@@ -139,6 +155,7 @@
   </header>
   <br>
   <main>
+
     <div>
       <p class="whosTurn"></p>
     </div>
@@ -149,19 +166,19 @@
     <div class="boardGame">
       <table>
         <tr class="a">
-          <td id="a0"></td>
-          <td id="a1"></td>
-          <td id="a2"></td>
+          <td id="a0" class="box stop"></td>
+          <td id="a1" class="box stop"></td>
+          <td id="a2" class="box stop"></td>
         </tr>
         <tr class="b">
-          <td id="b0"></td>
-          <td id="b1"></td>
-          <td id="b2"></td>
+          <td id="b0" class="box stop"></td>
+          <td id="b1" class="box stop"></td>
+          <td id="b2" class="box stop"></td>
         </tr>
         <tr class="c">
-          <td id="c0"></td>
-          <td id="c1"></td>
-          <td id="c2"></td>
+          <td id="c0" class="box stop"></td>
+          <td id="c1" class="box stop"></td>
+          <td id="c2" class="box stop"></td>
         </tr>
         <br>
       </table>
@@ -182,11 +199,9 @@
       </table>
     </div>
     <br>
-    <form>
-      <input id="play-again" type="button" value="Play Again" onclick="resetGame()">
-    </form>
+    <button type="button" class="play-again">Play again!</button>
     <br>
-
+    <br>
     <form class="start-game" id="start-game">
       <input type="submit" name="submit" value="Start game!">
     </form>
@@ -198,5 +213,4 @@
     </form>
   </main>
 </body>
-
 </html>

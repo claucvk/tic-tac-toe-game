@@ -78,24 +78,25 @@ const updateMoves = function (index, value, over) {
     data: {
       'game': {
         'cell': {
-          'index': index,
-          'value': value
+          'index': data.index,
+          'value': data.value
         },
-        'over': over
+        'over': data.over
       }
     }
   })
 }
 
 const gameView = function () {
-  // console.log(app.user.token)
+  //console.log(app.user.token)
+  alert('test')
   return $.ajax({
-    url: app.host + '/games',
-    method: 'GET',
-    headers: {
-      Authorization: 'Token token=' + app.user.token
-    }
-  })
+   method: 'GET',
+   url: app.host + 'games/',
+   headers: {
+     Authorization: 'Token token=' + app.user.token,
+   }
+ })
 }
 
 module.exports = {

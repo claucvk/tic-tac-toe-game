@@ -20,12 +20,36 @@ $(() => {
 require('./example');
 
 // Game logic
-const resetGame = function resetGame () {
+/*const replay = function replay () {
+  events.replay()
+  $('.box').on('click', checkingResult)
   a = [0, 0, 0];
   b = [0, 0, 0];
   c = [0, 0, 0];
-}
+} */
 
+/* function replay (table) {
+  table.find('td').each(function () {
+    $(this).removeClass('a0')
+  })
+} */
+/* function replay () {
+$(document).ready(function(){
+$("#stop").click(function(){
+        $(".box").stop();
+    });
+});
+} */
+
+$(function newGame () {
+  $('.play-again').on('click', function (event) {
+    markerSquare()
+    $('.box').html(' ')
+    a = []
+    b = []
+    c = []
+  })
+})
 // Identify Who is the turn, switch turns and place the marker in the square chosen
 const playerX = 1;
 const playerO = 2;
@@ -47,39 +71,37 @@ let cell9 = $('#c2')
 
 $( "#a0" ).click(function() {
     if (turn === playerX) {
-    cell1.html('X');
-    //turn = 2
+    cell1.html('X').off();
   } else {
-    cell1.html('O');
-    //turn = 1
+    cell1.html('O').off();
     }
    markerSquare(turn, a, 0);
 });
 
 $( "#a1" ).click(function() {
     if (turn === playerX) {
-    cell2.html('X');
+    cell2.html('X').off();
   } else {
-    cell2.html('O');
+    cell2.html('O').off();
     }
    markerSquare(turn, a, 1);
 });
 
 $( "#a2" ).click(function() {
     if (turn === playerX) {
-    cell3.html('X');
+    cell3.html('X').off();
   } else {
-    cell3.html('O');
+    cell3.html('O').off();
     }
    markerSquare(turn, a, 2);
 });
 
 $( "#b0" ).click(function() {
     if (turn === playerX) {
-    cell4.html('X');
+    cell4.html('X').off();
     //turn = 2
   } else {
-    cell4.html('O');
+    cell4.html('O').off();
     //turn = 1
     }
    markerSquare(turn, b, 0);
@@ -87,10 +109,10 @@ $( "#b0" ).click(function() {
 
 $( "#b1" ).click(function() {
     if (turn === playerX) {
-    cell5.html('X');
+    cell5.html('X').off();
     //turn = 2
   } else {
-    cell5.html('O');
+    cell5.html('O').off();
     //turn = 1
     }
    markerSquare(turn, b, 1);
@@ -98,10 +120,10 @@ $( "#b1" ).click(function() {
 
 $( "#b2" ).click(function() {
     if (turn === playerX) {
-    cell6.html('X');
+    cell6.html('X').off();
     //turn = 2
   } else {
-    cell6.html('O');
+    cell6.html('O').off();
     //turn = 1
     }
    markerSquare(turn, b, 2);
@@ -109,10 +131,10 @@ $( "#b2" ).click(function() {
 
 $( "#c0" ).click(function() {
     if (turn === playerX) {
-    cell7.html('X');
+    cell7.html('X').off();
     //turn = 2
   } else {
-    cell7.html('O');
+    cell7.html('O').off();
     //turn = 1
     }
    markerSquare(turn, c, 0);
@@ -120,10 +142,10 @@ $( "#c0" ).click(function() {
 
 $( "#c1" ).click(function() {
     if (turn === playerX) {
-    cell8.html('X');
+    cell8.html('X').off();
     //turn = 2
   } else {
-    cell8.html('O');
+    cell8.html('O').off();
     //turn = 1
     }
    markerSquare(turn, c, 1);
@@ -131,10 +153,10 @@ $( "#c1" ).click(function() {
 
 $( "#c2" ).click(function() {
     if (turn === playerX) {
-    cell9.html('X');
+    cell9.html('X').off();
     //turn = 2
   } else {
-    cell9.html('O');
+    cell9.html('O').off();
     //turn = 1
     }
    markerSquare(turn, c, 2);

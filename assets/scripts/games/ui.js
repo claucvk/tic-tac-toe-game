@@ -44,7 +44,7 @@ const failure = (error) => {
 
 const onViewSuccess = function (data) {
 console.log(data)
-// I need to put the code to feedback here.
+alert('You have played before')
 }
 
 module.exports = {
