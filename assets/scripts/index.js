@@ -358,8 +358,6 @@ function checkingResult() {
   console.log(b);
   console.log(c);
   if (win === true) {
-    var board = $('.boardGame');
-    board.unbind();
   console.log('hola')
   }
 };
