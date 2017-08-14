@@ -21,7 +21,8 @@ require('./example');
 
 $(function newGame () {
     $('.play-again').on('click', function (event) {
-    cell1.html('').on(' ')
+
+    cell1.html('').on('')
     cell2.html('').on('')
     cell3.html('').on('')
     cell4.html('').on('')
@@ -30,6 +31,7 @@ $(function newGame () {
     cell7.html('').on('')
     cell8.html('').on('')
     cell9.html('').on('')
+    win = false
     a = [0, 0, 0];
     b = [0, 0, 0];
     c = [0, 0, 0];
@@ -219,7 +221,7 @@ let playerXScore = 0;
 let playerOScore = 0;
 let ties = 0;
 let times = 0;
-
+let win = false
 // Check each vertical for 3 markers in a row.
 const verticalChecking = function verticalChecking() {
   for (let i = 0; i < 3; i++) {
@@ -227,16 +229,19 @@ const verticalChecking = function verticalChecking() {
       playerXScore++;
       playerXResults.html(playerXScore)
       results.html('Player X wins ');
+      win = true
       return;
     } else if (a[i] === b[i] && b[i] === c[i] && c[i] === playerO) {
       playerOScore++;
       playerOResults.html(playerOScore)
       results.html('Player O wins ');
+      win = true
       return;
     }  else if (times === 9) {
       ties++;
       tiesResults.html(ties)
       results.html("It's a tie");
+      win = true
       return;
     }  else {
       console.log('there is not 3 markers in a row');
@@ -250,35 +255,42 @@ const horizontalChecking = function horizontalChecking() {
     playerXScore++;
     playerXResults.html(playerXScore)
     results.html('Player X wins ');
+    win = true
     return;
   } else if (a[0] === a[1] && a[1] === a[2] && a[2] === playerO) {
     playerOScore++;
     playerOResults.html(playerOScore)
     results.html('Player O wins ');
+    win = true
     return;
   } else if (b[0] === b[1] && b[1] === b[2] && b[2] === playerX) {
     playerXScore++;
     playerXResults.html(playerXScore)
     results.html('Player X wins ');
+    win = true
     return;
   } else if (b[0] === b[1] && b[1] === b[2] && b[2] === playerO) {
     playerOScore++;
     playerOResults.html(playerOScore)
     results.html('Player O wins ');
+    win = true
     return;
   } else if (c[0] === c[1] && c[1] === c[2] && c[2] === playerX) {
     playerXScore++;
     playerXResults.html(playerXScore)
     results.html('Player X wins ');
+    win = true
     return;
   } else if (c[0] === c[1] && c[1] === c[2]  && c[2] === playerO) {
     playerOScore++;
     playerOResults.html(playerOScore)
     results.html('Player O wins ');
+    win = true
   } else if (times === 9) {
     ties++;
     tiesResults.html(ties)
     results.html("It's a tie");
+    win = true
     return;
   } else {
     console.log('there is not 3 markers in a row');
@@ -291,16 +303,19 @@ const diagonalLeftChecking = function diagonalLeftChecking() {
       playerXScore++;
       playerXResults.html(playerXScore)
       results.html('Player X wins ');
+      win = true
       return;
     } else if (c[0] === b[1] && b[1] === a[2] && a[2] === playerO) {
       playerOScore++;
       playerOResults.html(playerOScore)
       results.html('Player O wins ');
+      win = true
       return;
     } else if (times === 9) {
       ties++;
       tiesResults.html(ties)
       results.html("It's a tie");
+      win = true
       return;
     } else {
       console.log('there is not 3 markers in a row');
@@ -313,16 +328,19 @@ const diagonalRightChecking = function diagonalRightChecking() {
       playerXScore++;
       playerXResults.html(playerXScore)
       results.html('Player X wins ');
+      win = true
       return;
     } else if (a[0] === b[1] && b[1] === c[2] && c[2] === playerO) {
       playerOScore++;
       playerOResults.html(playerOScore)
       results.html('Player O wins ');
+      win = true
       return;
     } else if (times === 9) {
       ties++;
       tiesResults.html(ties)
       results.html("It's a tie");
+      win = true
       return;
     } else {
       console.log('there is not 3 markers in a row');
@@ -339,4 +357,9 @@ function checkingResult() {
   console.log(a);
   console.log(b);
   console.log(c);
+  if (win === true) {
+    var board = $('.boardGame');
+    board.unbind();
+  console.log('hola')
+  }
 };
