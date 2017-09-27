@@ -9,6 +9,7 @@ const signUpSuccess = (data) => {
   console.log('Sign up successful')
   $('#sign-up').addClass('hidden')
   $('#sign-in').removeClass('hidden')
+  $('#sign-in input').not('.submits-btn').val('')
   $('#sign-up input').not('.submit-btn').val('')
   $('#already-user').addClass('hidden')
   const signUpFail = $('#signUpFail')
@@ -43,6 +44,12 @@ const signOutSuccess = () => {
   app.user = null
   console.log(app)
   console.log('Sign out successful')
+  $('#sign-out').addClass('hidden')
+  $('#sign-up').removeClass('hidden')
+  $('#change-password').addClass('hidden')
+  $('#already-user').removeClass('hidden')
+  $('#view-games').addClass('hidden')
+  $('#start-game').addClass('hidden')
 }
 
 const signOutFailure = (error) => {
