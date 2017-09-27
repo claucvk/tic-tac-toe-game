@@ -90,12 +90,14 @@ const onCreateSuccess = () => {
 
 const onUpdateSuccess = function (data) {
   console.log(data)
+  console.log('Esto es onUpdateSuccess')
 }
 
 const failure = (error) => {
   console.error(error)
 }
 
+// Games history
 const onViewSuccess = function (data) {
   console.log(data)
   alert('You have played before')

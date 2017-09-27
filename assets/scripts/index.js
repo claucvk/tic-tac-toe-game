@@ -21,7 +21,6 @@ require('./example')
 
 $(function newGame () {
   $('.play-again').on('click', function (event) {
-
     cell1.html('').on('')
     cell2.html('').on('')
     cell3.html('').on('')
@@ -195,11 +194,11 @@ $(document).ready(function () {
 const playerTurn = function playerTurn () {
   if (turn === playerX) {
     turn = playerO
-    playersTurn.html("It's Player X's Turn")
+    playersTurn.html("It's Player O's Turn")
     return turn
   } else {
     turn = playerX
-    playersTurn.html("It's Player O's Turn")
+    playersTurn.html("It's Player X's Turn")
     return turn
   }
 }
@@ -269,7 +268,7 @@ const horizontalChecking = function horizontalChecking () {
   } else if (b[0] === b[1] && b[1] === b[2] && b[2] === playerO) {
     playerOScore++
     playerOResults.html(playerOScore)
-    results.html('Player O wins ');
+    results.html('Player O wins ')
     win = true
     return
   } else if (c[0] === c[1] && c[1] === c[2] && c[2] === playerX) {
