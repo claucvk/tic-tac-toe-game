@@ -7,10 +7,17 @@ const signUpSuccess = (data) => {
   app.user = data.user
   console.log(data)
   console.log('Sign up successful')
+  $('#sign-up').addClass('hidden')
+  $('#sign-in').removeClass('hidden')
+  $('#already-user').addClass('hidden')
+  const signUpFail = $('#signUpFail')
+  signUpFail.html('').css('color', 'red')
 }
 const signUpFailure = (error) => {
   console.log(error)
   console.log('Sign Up failed. Verify your email or password!')
+  const signUpFail = $('#signUpFail')
+  signUpFail.html('Sign Up failed. Verify your email or password!').css('color', 'red')
 }
 
 // Sign In
