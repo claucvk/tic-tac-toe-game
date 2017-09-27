@@ -51,6 +51,21 @@ const changePasswordFailure = (error) => {
   console.log(error)
 }
 
+// Already a user button
+const oldUser = function () {
+  $('#sign-up').addClass('hidden')
+  $('#sign-in').removeClass('hidden')
+  $('#already-user').addClass('hidden')
+  $('#not-user').removeClass('hidden')
+}
+// Need to sign up button
+const newUser = function () {
+  $('#sign-up').removeClass('hidden')
+  $('#sign-in').addClass('hidden')
+  $('#already-user').removeClass('hidden')
+  $('#not-user').addClass('hidden')
+}
+
 // Start a new game.
 const onCreateSuccess = () => {
   console.log('New game created')
@@ -79,6 +94,8 @@ module.exports = {
   changePasswordFailure,
   signOutSuccess,
   signOutFailure,
+  oldUser,
+  newUser,
   failure,
   onCreateSuccess,
   onUpdateSuccess,
