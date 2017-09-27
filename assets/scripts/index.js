@@ -19,25 +19,14 @@ $(() => {
 // use require without a reference to ensure a file is bundled
 require('./example')
 let win = false
-$(function newGame () {
-  $('.play-again').on('click', function (event) {
-    $('.boardGame').find('.box').each(function () {
-      // .html('').on('')
-    })
+$(function newGame() {
+  $('.play-again').on('click', function(event) {
+    $('.boardGame').find('.box').html('').on('')
     win = false
-    // cell1.html('').on('')
-    // cell2.html('').on('')
-    // cell3.html('').on('')
-    // cell4.html('').on('')
-    // cell5.html('').on('')
-    // cell6.html('').on('')
-    // cell7.html('').on('')
-    // cell8.html('').on('')
-    // cell9.html('').on('')
     a = [0, 0, 0]
     b = [0, 0, 0]
     c = [0, 0, 0]
-    $(document).ready(function () {
+    $(document).ready(function() {
       a0()
       a1()
       a2()
@@ -51,6 +40,7 @@ $(function newGame () {
   })
 })
 
+
 // Identify Who is the turn, switch turns and place the marker in the square chosen
 const playerX = 1
 const playerO = 2
@@ -60,38 +50,35 @@ let a = [0, 0, 0]
 let b = [0, 0, 0]
 let c = [0, 0, 0]
 
-const mark = function (selector, column, columnIndex) {
-  $(selector).click(function () {
-    if (win === true) { return }
+const mark = function(selector, column, columnIndex) {
+  $(selector).click(function() {
+    if (win === true) {
+      return
+    }
+    if ($(this).html() !== '') {
+      return
+    }
     if (turn === playerX) {
-      $(selector).prepend('<img src="../images/x.png"/>')
+      $(this).html('X').off('')
     } else {
-      $(selector).prepend('<img src="../images/o.png"/>')
+      $(this).html('O').off('')
     }
     markerSquare(turn, column, columnIndex)
   })
 }
 
 const a0 = () => mark('#a0', a, 0)
-
 const a1 = () => mark('#a1', a, 1)
-
 const a2 = () => mark('#a2', a, 2)
-
 const b0 = () => mark('#b0', b, 0)
-
 const b1 = () => mark('#b1', b, 1)
-
 const b2 = () => mark('#b2', b, 2)
-
 const c0 = () => mark('#c0', c, 0)
-
 const c1 = () => mark('#c1', c, 1)
-
 const c2 = () => mark('#c2', c, 2)
 
 const playersTurn = $('.whosTurn')
-$(document).ready(function () {
+$(document).ready(function() {
   a0()
   a1()
   a2()
@@ -103,7 +90,7 @@ $(document).ready(function () {
   c2()
 })
 
-const playerTurn = function playerTurn () {
+const playerTurn = function playerTurn() {
   if (turn === playerX) {
     turn = playerO
     playersTurn.html("It's Player O's Turn")
@@ -129,21 +116,28 @@ let playerOScore = 0
 let ties = 0
 let times = 0
 
+// Check winner
+const onWin = (player) => {
+  if (player === 'X') {
+    playerXScore++
+    playerXResults.html(playerXScore)
+    results.html('Player X wins ')
+  } else if (player === 'O') {
+    playerOScore++
+    playerOResults.html(playerOScore)
+    results.html('Player O wins ')
+  }
+  win = true
+}
+
 // Check each vertical for 3 markers in a row.
 const verticalChecking = function verticalChecking () {
   for (let i = 0; i < 3; i++) {
     if (a[i] === b[i] && b[i] === c[i] && c[i] === playerX) {
-      playerXScore++
-      playerXResults.html(playerXScore)
-      results.html('Player X wins ')
-      win = true
-      return
-    } else if (a[i] === b[i] && b[i] === c[i] && c[i] === playerO) {
-      playerOScore++
-      playerOResults.html(playerOScore)
-      results.html('Player O wins ')
-      win = true
-      return
+      onWin('X')
+    }
+    if (a[i] === b[i] && b[i] === c[i] && c[i] === playerO) {
+      onWin('O')
     } else if (times === 9 && win === false) {
       ties++
       tiesResults.html(ties)
@@ -159,41 +153,24 @@ const verticalChecking = function verticalChecking () {
 // Check each horizontal for 3 markers in a row.
 const horizontalChecking = function horizontalChecking () {
   if (a[0] === a[1] && a[1] === a[2] && a[2] === playerX) {
-    playerXScore++
-    playerXResults.html(playerXScore)
-    results.html('Player X wins ')
-    win = true
-    return
-  } else if (a[0] === a[1] && a[1] === a[2] && a[2] === playerO) {
-    playerOScore++
-    playerOResults.html(playerOScore)
-    results.html('Player O wins ')
-    win = true
-    return
-  } else if (b[0] === b[1] && b[1] === b[2] && b[2] === playerX) {
-    playerXScore++
-    playerXResults.html(playerXScore)
-    results.html('Player X wins ');
-    win = true
-    return
-  } else if (b[0] === b[1] && b[1] === b[2] && b[2] === playerO) {
-    playerOScore++
-    playerOResults.html(playerOScore)
-    results.html('Player O wins ')
-    win = true
-    return
-  } else if (c[0] === c[1] && c[1] === c[2] && c[2] === playerX) {
-    playerXScore++
-    playerXResults.html(playerXScore)
-    results.html('Player X wins ')
-    win = true
-    return
-  } else if (c[0] === c[1] && c[1] === c[2] && c[2] === playerO) {
-    playerOScore++
-    playerOResults.html(playerOScore)
-    results.html('Player O wins ')
-    win = true
-  } else if (times === 9 && win === false) {
+    onWin('X')
+  }
+  if (a[0] === a[1] && a[1] === a[2] && a[2] === playerO) {
+    onWin('O')
+  }
+  if (b[0] === b[1] && b[1] === b[2] && b[2] === playerX) {
+    onWin('X')
+  }
+  if (b[0] === b[1] && b[1] === b[2] && b[2] === playerO) {
+    onWin('O')
+  }
+  if (c[0] === c[1] && c[1] === c[2] && c[2] === playerX) {
+    onWin('X')
+  }
+  if (c[0] === c[1] && c[1] === c[2] && c[2] === playerO) {
+    onWin('O')
+  }
+  if (times === 9 && win === false) {
     ties++
     tiesResults.html(ties)
     win = true
@@ -207,42 +184,10 @@ const horizontalChecking = function horizontalChecking () {
 // Check diagonal starts c[0] for 3 markers in a row.
 const diagonalLeftChecking = function diagonalLeftChecking () {
   if (c[0] === b[1] && b[1] === a[2] && a[2] === playerX) {
-    playerXScore++
-    playerXResults.html(playerXScore)
-    results.html('Player X wins ')
-    win = true
-    return
-  } else if (c[0] === b[1] && b[1] === a[2] && a[2] === playerO) {
-    playerOScore++
-    playerOResults.html(playerOScore)
-    results.html('Player O wins ')
-    win = true
-    return;
-  } else if (times === 9 && win === false) {
-    ties++
-    tiesResults.html(ties)
-    win = true
-    results.html("It's a tie")
-    return
-  } else {
-    console.log('there is not 3 markers in a row')
+    onWin('X')
   }
-};
-
-// Check diagonal starts a[0] for 3 markers in a row.
-const diagonalRightChecking = function diagonalRightChecking () {
-  if (a[0] === b[1] && b[1] === c[2] && c[2] === playerX) {
-    playerXScore++
-    playerXResults.html(playerXScore)
-    results.html('Player X wins ')
-    win = true
-    return
-  } else if (a[0] === b[1] && b[1] === c[2] && c[2] === playerO) {
-    playerOScore++
-    playerOResults.html(playerOScore)
-    results.html('Player O wins ')
-    win = true
-    return
+  if (c[0] === b[1] && b[1] === a[2] && a[2] === playerO) {
+    onWin('O')
   } else if (times === 9 && win === false) {
     ties++
     tiesResults.html(ties)
@@ -254,7 +199,25 @@ const diagonalRightChecking = function diagonalRightChecking () {
   }
 }
 
-function checkingResult () {
+// Check diagonal starts a[0] for 3 markers in a row.
+const diagonalRightChecking = function diagonalRightChecking () {
+  if (a[0] === b[1] && b[1] === c[2] && c[2] === playerX) {
+    onWin('X')
+    return
+  if (a[0] === b[1] && b[1] === c[2] && c[2] === playerO) {
+    onWin('O')
+  } else if (times === 9 && win === false) {
+    ties++
+    tiesResults.html(ties)
+    win = true
+    results.html("It's a tie")
+    return
+  } else {
+    console.log('there is not 3 markers in a row')
+  }
+}
+
+function checkingResult() {
   console.log(times)
   console.log(win)
   console.log(turn)
@@ -272,5 +235,4 @@ function checkingResult () {
   console.log(a)
   console.log(b)
   console.log(c)
-
 }
