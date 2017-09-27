@@ -99,8 +99,14 @@ const failure = (error) => {
 
 // Games history
 const onViewSuccess = function (data) {
+  $('#data-games').empty()
   console.log(data)
   alert('You have played before')
+  const games = data.games
+  for (let i = 0; i < games.length; i++) {
+    $('#data-games').append('<p>ID Game' + games[i].id + '</p>')
+    // $('#data-games').append('<p>ID Game' + games[i].id + '</p>')
+  }
 }
 
 module.exports = {
