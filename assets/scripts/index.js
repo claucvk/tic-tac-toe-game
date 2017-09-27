@@ -19,14 +19,14 @@ $(() => {
 // use require without a reference to ensure a file is bundled
 require('./example')
 let win = false
-$(function newGame() {
-  $('.play-again').on('click', function(event) {
+$(function newGame () {
+  $('.play-again').on('click', function (event) {
     $('.boardGame').find('.box').html('').on('')
     win = false
     a = [0, 0, 0]
     b = [0, 0, 0]
     c = [0, 0, 0]
-    $(document).ready(function() {
+    $(document).ready(function () {
       a0()
       a1()
       a2()
@@ -40,7 +40,6 @@ $(function newGame() {
   })
 })
 
-
 // Identify Who is the turn, switch turns and place the marker in the square chosen
 const playerX = 1
 const playerO = 2
@@ -50,8 +49,8 @@ let a = [0, 0, 0]
 let b = [0, 0, 0]
 let c = [0, 0, 0]
 
-const mark = function(selector, column, columnIndex) {
-  $(selector).click(function() {
+const mark = function (selector, column, columnIndex) {
+  $(selector).click(function () {
     if (win === true) {
       return
     }
@@ -78,7 +77,7 @@ const c1 = () => mark('#c1', c, 1)
 const c2 = () => mark('#c2', c, 2)
 
 const playersTurn = $('.whosTurn')
-$(document).ready(function() {
+$(document).ready(function () {
   a0()
   a1()
   a2()
@@ -90,7 +89,7 @@ $(document).ready(function() {
   c2()
 })
 
-const playerTurn = function playerTurn() {
+const playerTurn = function playerTurn () {
   if (turn === playerX) {
     turn = playerO
     playersTurn.html("It's Player O's Turn")
@@ -176,8 +175,6 @@ const horizontalChecking = function horizontalChecking () {
     win = true
     results.html("It's a tie")
     return
-  } else {
-    console.log('there is not 3 markers in a row')
   }
 }
 
@@ -203,7 +200,7 @@ const diagonalLeftChecking = function diagonalLeftChecking () {
 const diagonalRightChecking = function diagonalRightChecking () {
   if (a[0] === b[1] && b[1] === c[2] && c[2] === playerX) {
     onWin('X')
-    return
+  }
   if (a[0] === b[1] && b[1] === c[2] && c[2] === playerO) {
     onWin('O')
   } else if (times === 9 && win === false) {
@@ -217,7 +214,7 @@ const diagonalRightChecking = function diagonalRightChecking () {
   }
 }
 
-function checkingResult() {
+function checkingResult () {
   console.log(times)
   console.log(win)
   console.log(turn)
