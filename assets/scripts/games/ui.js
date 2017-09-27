@@ -1,59 +1,79 @@
-'use strict';
-//remove signIn and signOut
-const app = require('../app.js');
+'use strict'
+// remove signIn and signOut
+const app = require('../app.js')
 
-//SignIn
+// Sign Up
+const signUpSuccess = (data) => {
+  app.user = data.user
+  console.log(data)
+  console.log('Sign up successful')
+}
+const signUpFailure = (error) => {
+  console.log(error)
+  console.log('Sign Up failed. Verify your email or password!')
+}
+
+// Sign In
 const signInSuccess = (data) => {
-  app.user = data.user;
-  console.log(app);
-  alert('Sign In succesful')
-  // Mostrar un mensaje al usuario de que fue un signin succesful.
-};
+  app.user = data.user
+  console.log(data)
+  console.log('Sign in successful')
+}
 
-// Start a new game.
-const onCreateSuccess = () => {
-  console.log("New game created");
-  alert('New game created')
-};
+const signInFailure = (error) => {
+  console.log(error)
+  console.log('Sign In failed. Verify your email or password!')
+}
 
-//Sign Out
+// Sign Out
 const signOutSuccess = () => {
-  app.user = null;
-  console.log(app);
-  alert('Sign Out succesful')
-};
+  app.user = null
+  console.log(app)
+  console.log('Sign out successful')
+}
+
+const signOutFailure = (error) => {
+  console.log(error)
+}
 
 // Change password
 const changePasswordSuccess = () => {
-  console.log("Password Successfully Changed.");
-  alert('Password Successfully Changed.')
-};
-// This is onSignUp (events)
-const success = (data) => {
-  console.log(data);
-  alert('Sign Out succesful')
-};
+  console.log('Password Successfully Changed.')
+}
+const changePasswordFailure = (error) => {
+  console.log(error)
+}
+
+// Start a new game.
+const onCreateSuccess = () => {
+  console.log('New game created')
+  alert('New game created')
+}
 
 const onUpdateSuccess = function (data) {
   console.log(data)
 }
 
 const failure = (error) => {
-  console.error(error);
-};
+  console.error(error)
+}
 
 const onViewSuccess = function (data) {
-console.log(data)
-alert('You have played before')
+  console.log(data)
+  alert('You have played before')
 }
 
 module.exports = {
-  failure,
-  success,
+  signUpSuccess,
+  signUpFailure,
   signInSuccess,
-  signOutSuccess,
+  signInFailure,
   changePasswordSuccess,
+  changePasswordFailure,
+  signOutSuccess,
+  signOutFailure,
+  failure,
   onCreateSuccess,
   onUpdateSuccess,
-  onViewSuccess,
-};
+  onViewSuccess
+}

@@ -5,6 +5,13 @@ $background-color: white;
 $font-color: black;
 $white: #fff;
 
+.flex-grid {
+  display: flex;
+}
+.col {
+  flex: 1;
+}
+
 body {
     font-family:“Roboto”, Arial, sans-serif;
     margin:0 auto;
@@ -14,7 +21,7 @@ body {
     text-shadow:-1px -1px #333;
 }
 
-nav {
+header {
   background-color: #bfa0f9;
   padding: 20px;
 }

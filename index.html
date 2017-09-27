@@ -19,151 +19,71 @@
 
 <body class="container-fluid">
   <header>
-    <nav>
-      <h1>TIC TAC TOE GAME</h1>
-      <div class="container">
-        <!-- Trigger the modal with a button -->
-        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Sign Up / Sign In</button>
-
-        <!-- Modal -->
-        <div class="modal fade" id="myModal" role="dialog">
-          <div class="modal-dialog">
-
-            <!-- Modal content-->
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Sign Up</h4>
-              </div>
-              <div class="modal-body">
-                <form id="sign-up">
-                  <fieldset>
-                    <input type="text" name="credentials[email]" placeholder="Email">
-                    <input type="password" name="credentials[password]" placeholder="Create Password">
-                    <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
-                    <input type="submit" name="submit" value="Sign Up!">
-                  </fieldset>
-                </form>
-              </div>
-              <div class="modal-header">
-                <h4 class="modal-title">Sign In</h4>
-              </div>
-              <div class="modal-body">
-                <div>
-                  <form id="sign-in">
-                    <fieldset>
-                      <input type="text" name="credentials[email]" placeholder="Email">
-                      <input type="password" name="credentials[password]" placeholder="Password">
-                      <input type="submit" name="submit" value="Sign In!">
-                    </fieldset>
-                  </form>
-                </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <br>
-      <div class="container">
-        <!-- Trigger the modal with a button -->
-        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal2">Change Password</button>
-
-        <!-- Modal -->
-        <div class="modal fade" id="myModal2" role="dialog">
-          <div class="modal-dialog">
-
-            <!-- Modal content-->
-            <div class="modal-content">
-              <div class="modal-header">
-                <h4 class="modal-title">Change Password</h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-              </div>
-              <div class="modal-body">
-                <div>
-                  <form id="change-password">
-                    <fieldset>
-                      <input type="password" name="credentials[old]" placeholder="Old Password">
-                      <input type="password" name="credentials[new]" placeholder="New Password">
-                      <input type="submit" name="submit" value="Submit Changes">
-                    </fieldset>
-                  </form>
-                </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <br>
-      <div class="container">
-        <!-- Trigger the modal with a button -->
-        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal3">Games History</button>
-
-        <!-- Modal -->
-        <div class="modal fade" id="myModal3" role="dialog">
-          <div class="modal-dialog">
-
-            <!-- Modal content-->
-            <div class="modal-content">
-              <div class="modal-header">
-                <h4 class="modal-title">Games History</h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-              </div>
-              <div class="modal-body">
-                <div>
-                  <form class="view-games" id="view-games">
-                    <input type="submit" name="submit" value="View Games!">
-                  </form>
-                  <table class="table">
-                    <thead>
-                      <tr>
-                        <th> Game ID </th>
-                        <th> Moves </th>
-                        <th> Over </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td></td>
-                        <td> </td>
-                        <td></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <br>
-      <div>
-        <form class="sign-out" id="sign-out">
-          <input type="submit" name="submit" value="Sign out!">
-        </form>
-      </div>
-
-    </nav>
+    <h1>TIC TAC TOE GAME</h1>
   </header>
   <br>
   <main>
-
-    <div>
-      <p class="whosTurn"></p>
+    <!-- I. USER AUTHENTICATION-->
+  <div class="flex-grid">
+    <!-- Sign Up-->
+    <div class="header col">
+      <div>
+        <form id="sign-up">
+          <h2>Sign Up</h2>
+          <fieldset>
+            <legend></legend>
+            <input type="text" name="credentials[email]" value="" placeholder="email">
+            <input type="password" name="credentials[password]" value="" placeholder="password">
+            <input type="password" name="credentials[password_confirmation]" value="" placeholder="password confirmation">
+            <input type="submit" name="submit" class="submit-btn" value="Sign up!">
+          </fieldset>
+        </form>
+        <br>
+        <button type="button" name="Already a User" id="already-user">Already a User</button>
+        <p id="signUpFail"></p>
+      </div>
+      <!-- Sign In-->
+      <div>
+        <form id="sign-in" class="hidden">
+          <h2>Sign In</h2>
+          <fieldset>
+            <legend></legend>
+            <input type="text" name="credentials[email]" value="" placeholder="email">
+            <input type="password" name="credentials[password]" value="" placeholder="password">
+            <input type="submit" name="submit" value="Sign in!">
+          </fieldset>
+          <br>
+          <button type="button" name="Not a Userr" id="not-user">Wait, I DO need to Sign-up!</button>
+          <p id="signInFail"></p>
+        </form>
+      </div>
+      <!-- Change password-->
+      <div>
+        <form id="change-password" class="hidden change-password-error">
+            <h2>Change Password</h2>
+          <fieldset>
+            <legend></legend>
+            <input type="password" name="passwords[old]" value="" placeholder="Old Password">
+            <input type="password" name="passwords[new]" value="" placeholder="New Password">
+            <input type="submit" name="submit" class="submit-btn" value="Change Password">
+          </fieldset>
+        </form>
+        <p id="changePasswordFail"></p>
+      </div>
+      <br>
+      <!-- Sign Out-->
+      <div class="col">
+        <form id="sign-out" class="hidden">
+          <fieldset>
+            <legend></legend>
+            <input type="submit" name="submit" value="Sign out">
+          </fieldset>
+        </form>
+      </div>
     </div>
-    <div>
-      <p class="results"></p>
-    </div>
-
-    <div class="boardGame">
+  </div>
+  <!-- II. BOARD GAME -->
+    <div class=" hidden boardGame">
       <table class="boardGame">
         <tr class="a">
           <td id="a0" class="box stop"></td>
@@ -184,7 +104,7 @@
       </table>
     </div>
     <br>
-    <div class="scoreGame">
+    <div class=" hidden scoreGame">
       <table class=tableScoreGame>
         <tr>
           <td> PLAYER O </td>
@@ -199,10 +119,10 @@
       </table>
     </div>
     <br>
-    <button type="button" class="play-again">Play again!</button>
+    <button type="button" class="hidden play-again">Play again!</button>
     <br>
     <br>
-    <form class="start-game" id="start-game">
+    <form class="hidden start-game" id="start-game">
       <input type="submit" name="submit" value="Start game!">
     </form>
 
@@ -213,4 +133,5 @@
     </form>
   </main>
 </body>
+
 </html>
