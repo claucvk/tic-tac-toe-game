@@ -82,7 +82,10 @@ const newUser = function () {
 // Start a new game.
 const onCreateSuccess = () => {
   console.log('New game created')
-  alert('New game created')
+  $('.boardGame').removeClass('hidden')
+  $('.scoreGame').removeClass('hidden')
+  $('.play-again').removeClass('hidden')
+  $('#start-game').addClass('hidden')
 }
 
 const onUpdateSuccess = function (data) {
