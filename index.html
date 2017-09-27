@@ -24,9 +24,8 @@
   <br>
   <main>
     <!-- I. USER AUTHENTICATION-->
-  <div class="flex-grid">
-    <!-- Sign Up-->
-    <div class="header col">
+    <div class="header">
+      <!-- Sign Up-->
       <div>
         <form id="sign-up">
           <h2>Sign Up</h2>
@@ -57,33 +56,44 @@
           <p id="signInFail"></p>
         </form>
       </div>
+    </div>
+    <!-- II. USER PROFILE-->
+    <div class="flex-grid">
       <!-- Change password-->
-      <div>
+      <div class="col">
         <form id="change-password" class="hidden change-password-error">
-            <h2>Change Password</h2>
           <fieldset>
-            <legend></legend>
+            <legend>Change Password</legend>
             <input type="password" name="passwords[old]" value="" placeholder="Old Password">
             <input type="password" name="passwords[new]" value="" placeholder="New Password">
+            <br>
+            <br>
             <input type="submit" name="submit" class="submit-btn" value="Change Password">
           </fieldset>
         </form>
         <p id="changePasswordFail"></p>
       </div>
-      <br>
+      <!-- Games History-->
+      <div class="col">
+        <form id="view-games" class="hidden view-games">
+          <fieldset>
+            <legend>Games History</legend>
+            <input type="submit" name="submit" value="View Games History">
+          </fieldset>
+        </form>
+      </div>
       <!-- Sign Out-->
       <div class="col">
         <form id="sign-out" class="hidden">
           <fieldset>
-            <legend></legend>
+            <legend>Sign Out</legend>
             <input type="submit" name="submit" value="Sign out">
           </fieldset>
         </form>
       </div>
     </div>
-  </div>
-  <!-- II. BOARD GAME -->
-    <div class=" hidden boardGame">
+    <!-- III. BOARD GAME -->
+    <div class="hidden boardGame">
       <table class="boardGame">
         <tr class="a">
           <td id="a0" class="box stop"></td>
@@ -119,11 +129,11 @@
       </table>
     </div>
     <br>
-    <button type="button" class="hidden play-again">Play again!</button>
+    <button type="button" class="hidden play-again">Play again</button>
     <br>
     <br>
     <form class="hidden start-game" id="start-game">
-      <input type="submit" name="submit" value="Start game!">
+      <input type="submit" name="submit" value="Start game">
     </form>
 
     <form class="update-game" id="update-game" hidden>

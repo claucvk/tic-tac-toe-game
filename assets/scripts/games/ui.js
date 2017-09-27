@@ -9,6 +9,7 @@ const signUpSuccess = (data) => {
   console.log('Sign up successful')
   $('#sign-up').addClass('hidden')
   $('#sign-in').removeClass('hidden')
+  $('#sign-up input').not('.submit-btn').val('')
   $('#already-user').addClass('hidden')
   const signUpFail = $('#signUpFail')
   signUpFail.html('').css('color', 'red')
@@ -25,6 +26,11 @@ const signInSuccess = (data) => {
   app.user = data.user
   console.log(data)
   console.log('Sign in successful')
+  $('#sign-in').addClass('hidden')
+  $('#sign-out').removeClass('hidden')
+  $('#change-password').removeClass('hidden')
+  $('#view-games').removeClass('hidden')
+  $('#start-game').removeClass('hidden')
 }
 
 const signInFailure = (error) => {
