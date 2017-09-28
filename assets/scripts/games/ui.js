@@ -38,6 +38,8 @@ const signInSuccess = (data) => {
 const signInFailure = (error) => {
   console.log(error)
   console.log('Sign In failed. Verify your email or password!')
+  const signInFail = $('#signInFail')
+  signInFail.html('Sign Up failed. Verify your email or password!').css('color', 'red')
 }
 
 // Sign Out
@@ -60,9 +62,17 @@ const signOutFailure = (error) => {
 // Change password
 const changePasswordSuccess = () => {
   console.log('Password Successfully Changed.')
+  const changePasswordFail = $('#changePasswordFail')
+  changePasswordFail.html('Password Successfully Changed.').css('color', 'green')
+  $('#old-password').val('')
+  $('#new-password').val('')
 }
 const changePasswordFailure = (error) => {
   console.log(error)
+  const changePasswordFail = $('#changePasswordFail')
+  changePasswordFail.html('Change password failed. Verify your passwords!').css('color', 'red')
+  $('#old-password').val('')
+  $('#new-password').val('')
 }
 
 // Already a user button
@@ -102,11 +112,12 @@ const failure = (error) => {
 // Games history
 const onViewSuccess = function (data) {
   $('#data-games').empty()
+  const hideGamesView = $('#hideGamesView')
+  hideGamesView.html('Click here to display and hide').css('blue')
   console.log(data)
-  // alert('You have played before')
   const games = data.games
   for (let i = 0; i < games.length; i++) {
-    $('#data-games').append('<p>ID Game' + games[i].id + '</p>')
+    $('#data-games').append('<p>ID Game' + games[i].id + '</p>').toggle()
     // $('#data-games').append('<p>ID Game' + games[i].id + '</p>')
   }
 }

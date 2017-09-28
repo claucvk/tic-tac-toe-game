@@ -115,7 +115,7 @@ let playerOScore = 0
 let ties = 0
 let times = 0
 
-// Check winner
+// Declare winner X or O
 const onWin = (player) => {
   if (player === 'X') {
     playerXScore++
@@ -128,6 +128,16 @@ const onWin = (player) => {
   }
   win = true
 }
+
+// Declare a tie
+// const onTie = () => {
+//   if (times === 9 && win === false) {
+//     ties++
+//     tiesResults.html(ties)
+//     win = true
+//     results.html("It's a tie")
+//   }
+// }
 
 // Check each vertical for 3 markers in a row.
 const verticalChecking = function verticalChecking () {

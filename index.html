@@ -64,8 +64,8 @@
         <form id="change-password" class="hidden change-password-error">
           <fieldset>
             <legend>Change Password</legend>
-            <input type="password" name="passwords[old]" value="" placeholder="Old Password">
-            <input type="password" name="passwords[new]" value="" placeholder="New Password">
+            <input type="password" name="passwords[old]" value="" placeholder="Old Password" id="old-password">
+            <input type="password" name="passwords[new]" value="" placeholder="New Password" id="new-password">
             <br>
             <br>
             <input type="submit" name="submit" class="submit-btn" value="Change Password">
@@ -74,6 +74,7 @@
         <p id="changePasswordFail"></p>
       </div>
       <!-- Games History-->
+
       <div class="col">
         <form id="view-games" class="hidden view-games">
           <fieldset>
@@ -81,6 +82,7 @@
             <input type="submit" name="submit" value="View Games History">
           </fieldset>
         </form>
+        <p id="hideGamesView"></p>
         <div id="data-games"></div>
       </div>
       <!-- Sign Out-->
