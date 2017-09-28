@@ -14,6 +14,7 @@ const signUpSuccess = (data) => {
   $('#already-user').addClass('hidden')
   const signUpFail = $('#signUpFail')
   signUpFail.html('').css('color', 'red')
+  $('.whosTurn').addClass('hidden')
 }
 const signUpFailure = (error) => {
   console.log(error)
@@ -86,6 +87,7 @@ const onCreateSuccess = () => {
   $('.scoreGame').removeClass('hidden')
   $('.play-again').removeClass('hidden')
   $('#start-game').addClass('hidden')
+  $('.whosTurn').removeClass('hidden')
 }
 
 const onUpdateSuccess = function (data) {
@@ -101,7 +103,7 @@ const failure = (error) => {
 const onViewSuccess = function (data) {
   $('#data-games').empty()
   console.log(data)
-  alert('You have played before')
+  // alert('You have played before')
   const games = data.games
   for (let i = 0; i < games.length; i++) {
     $('#data-games').append('<p>ID Game' + games[i].id + '</p>')

@@ -77,10 +77,10 @@ const updateMoves = function (index, value, over) {
     }
   })
 }
-
+// Games history
 const gameView = function () {
-  // console.log(app.user.token)
-  alert('test')
+  console.log(app.user.token)
+  // alert('test')
   return $.ajax({
     method: 'GET',
     url: app.host + 'games/',
