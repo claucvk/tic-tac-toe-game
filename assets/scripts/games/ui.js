@@ -130,7 +130,7 @@ const onViewSuccess = function (data) {
     $('#data-games').append('<p>ID Game' + games[i].id + '</p>').toggle()
     setTimeout(function () {
       $('#data-games').html('')
-    }, 3000)
+    }, 7000)
     // $('#data-games').append('<p>ID Game' + games[i].id + '</p>')
   }
   setTimeout(function () {
