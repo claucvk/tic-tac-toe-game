@@ -123,7 +123,7 @@ const failure = (error) => {
 const onViewSuccess = function (data) {
   $('#data-games').empty()
   const hideGamesView = $('#hideGamesView')
-  hideGamesView.html('Click here to display and hide this info').css('blue')
+  hideGamesView.html('Click this button to display and hide this info').css('green')
   console.log(data)
   const games = data.games
   for (let i = 0; i < games.length; i++) {
