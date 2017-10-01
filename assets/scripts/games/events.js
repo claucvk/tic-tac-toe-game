@@ -56,6 +56,7 @@ const onUpdateGame = function (index, value, over) {
     .fail(ui.fail)
 }
 
+// Games history
 const onViewGames = function (event) {
   event.preventDefault();
   let data = getFormFields(this); //event.target
