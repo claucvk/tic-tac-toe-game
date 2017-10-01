@@ -73,9 +73,9 @@ const mark = function (selector, column, columnIndex) {
       return
     }
     if (turn === playerX) {
-      $(this).html('X').off('')
+      $(this).html('X').css('color', 'magenta').off('')
     } else {
-      $(this).html('O').off('')
+      $(this).html('O').css('color', 'blue').off('')
     }
     markerSquare(turn, column, columnIndex)
   })
@@ -107,11 +107,11 @@ $(document).ready(function () {
 const playerTurn = function playerTurn () {
   if (turn === playerX) {
     turn = playerO
-    playersTurn.html("It's Player O's Turn")
+    playersTurn.html("It's Player O's Turn").css('color', 'blue')
     return turn
   } else {
     turn = playerX
-    playersTurn.html("It's Player X's Turn")
+    playersTurn.html("It's Player X's Turn").css('color', 'magenta')
     return turn
   }
 }
@@ -135,10 +135,16 @@ const onWin = (player) => {
       playerXScore++
       playerXResults.html(playerXScore)
       results.html('Player X wins ')
+      setTimeout(function () {
+        $('.results').html('')
+      }, 2000)
     } else if (player === 'O') {
       playerOScore++
       playerOResults.html(playerOScore)
       results.html('Player O wins ')
+      setTimeout(function () {
+        $('.results').html('')
+      }, 2000)
     }
     win = true
   }
@@ -152,6 +158,9 @@ const onTie = () => {
     tiesResults.html(ties)
     win = true
     results.html("It's a tie")
+    setTimeout(function () {
+      $('.results').html('')
+    }, 2000)
     tie = true
   }
 }

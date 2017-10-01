@@ -21,6 +21,9 @@ const signUpFailure = (error) => {
   console.log('Sign Up failed. Verify your email or password!')
   const signUpFail = $('#signUpFail')
   signUpFail.html('Sign Up failed. Verify your email or password!').css('color', 'red')
+  setTimeout(function () {
+    $('#signUpFail').html('')
+  }, 2000)
 }
 
 // Sign In
@@ -53,6 +56,10 @@ const signOutSuccess = () => {
   $('#already-user').removeClass('hidden')
   $('#view-games').addClass('hidden')
   $('#start-game').addClass('hidden')
+  $('.whosTurn').addClass('hidden')
+  $('.boardGame').addClass('hidden')
+  $('.scoreGame').addClass('hidden')
+  $('.play-again').addClass('hidden')
 }
 
 const signOutFailure = (error) => {
@@ -66,6 +73,9 @@ const changePasswordSuccess = () => {
   changePasswordFail.html('Password Successfully Changed.').css('color', 'green')
   $('#old-password').val('')
   $('#new-password').val('')
+  setTimeout(function () {
+    $('#changePasswordFail').html('')
+  }, 2000)
 }
 const changePasswordFailure = (error) => {
   console.log(error)
@@ -118,8 +128,14 @@ const onViewSuccess = function (data) {
   const games = data.games
   for (let i = 0; i < games.length; i++) {
     $('#data-games').append('<p>ID Game' + games[i].id + '</p>').toggle()
+    setTimeout(function () {
+      $('#data-games').html('')
+    }, 3000)
     // $('#data-games').append('<p>ID Game' + games[i].id + '</p>')
   }
+  setTimeout(function () {
+    $('#hideGamesView').html('')
+  }, 7000)
 }
 
 module.exports = {

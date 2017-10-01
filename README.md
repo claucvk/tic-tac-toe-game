@@ -1,6 +1,6 @@
-Tic Tac Toe Game: http://ccvk.me/tic-tac-toe-game/
+# Tic Tac Toe Game: http://ccvk.me/tic-tac-toe-game/
 
-I followed the next steps to build this game:
+## I followed the next steps to build this game:
 
 1) I develop some users stories to understand the game requirements.
 User Stories:
@@ -34,7 +34,7 @@ Links to wireframes
 4) I tried to write a modular code. Every function I created I tested separately and at the end I articulated between them to make the game work.
 
 
-Technologies used:
+## Technologies used:
 - Vanilla JavaScript
 - jQuery
 - HTML
@@ -42,7 +42,5 @@ Technologies used:
 - Bootstrap
 - Git
 
-Unsolved problems:
+## Unsolved problems:
 - Improve the look of the User Interface.
-- Stop clicks after having a winner.
-- Make work the "play game" button.
