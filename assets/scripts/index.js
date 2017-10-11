@@ -12,7 +12,6 @@ $(() => {
 $(() => {
   events.addHandlers()
   if (localStorage.getItem('userLocal') && localStorage.getItem('userLocal') !== 'undefined') {
-    console.log('dataLocal', JSON.parse(localStorage.getItem('userLocal')))
     events.localStorageSignIn(JSON.parse(localStorage.getItem('userLocal')))
   }
 })

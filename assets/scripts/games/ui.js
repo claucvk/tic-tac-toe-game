@@ -29,8 +29,6 @@ const signUpFailure = (error) => {
 // Sign In
 const signInSuccess = (data) => {
   // Local sign-in
-  console.log('Local sign-in ', Object.keys(localStorage))
-
   const userLocal = localStorage.getItem('userLocal')
   if (userLocal && userLocal !== 'undefined') {
     app.user = data

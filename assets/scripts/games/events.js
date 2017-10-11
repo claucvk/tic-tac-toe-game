@@ -39,7 +39,9 @@ const onChangePassword = function (event) {
 // Sign Out
 const onSignOut = function (event) {
   event.preventDefault()
-  const data = getFormFields(this) // event.target
+  const data = getFormFields(this)
+  const gameStorage = window.localStorage
+  gameStorage.setItem('userLocal', 'undefined')
   api.signOut(data)
     .done(ui.signOutSuccess)
     .fail(ui.signOutFailure)
