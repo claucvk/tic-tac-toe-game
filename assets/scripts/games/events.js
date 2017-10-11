@@ -22,6 +22,11 @@ const onSignIn = function (event) {
     .fail(ui.signInFailure)
 }
 
+const localStorageSignIn = function (dataLocal) {
+  console.log('dataLocal ', dataLocal)
+  ui.signInSuccess(dataLocal)
+}
+
 // Change password
 const onChangePassword = function (event) {
   event.preventDefault()
@@ -40,9 +45,9 @@ const onSignOut = function (event) {
     .fail(ui.signOutFailure)
 }
 
-const onCreateGame = function(event) {
+const onCreateGame = function (event) {
   event.preventDefault()
-  let data = getFormFields(this) //event.target
+  const data = getFormFields(this)
   api.create(data)
   .done(ui.onCreateSuccess)
   .fail(ui.fail)
@@ -78,5 +83,6 @@ const addHandlers = () => {
 }
 
 module.exports = {
-  addHandlers
+  addHandlers,
+  localStorageSignIn
 }

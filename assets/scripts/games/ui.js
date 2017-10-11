@@ -28,14 +28,34 @@ const signUpFailure = (error) => {
 
 // Sign In
 const signInSuccess = (data) => {
-  app.user = data.user
-  console.log(data)
-  console.log('Sign in successful')
-  $('#sign-in').addClass('hidden')
-  $('#sign-out').removeClass('hidden')
-  $('#change-password').removeClass('hidden')
-  $('#view-games').removeClass('hidden')
-  $('#start-game').removeClass('hidden')
+  // Local sign-in
+  console.log('Local sign-in ', Object.keys(localStorage))
+
+  const userLocal = localStorage.getItem('userLocal')
+  if (userLocal && userLocal !== 'undefined') {
+    app.user = data
+    console.log('object2 ', data)
+    console.log('Sign in successful')
+    $('#sign-in').addClass('hidden')
+    $('#already-user').addClass('hidden')
+    $('#sign-up').addClass('hidden')
+    $('#sign-out').removeClass('hidden')
+    $('#change-password').removeClass('hidden')
+    $('#view-games').removeClass('hidden')
+    $('#start-game').removeClass('hidden')
+  } else {
+    // Sign in successful via form
+    app.user = data.user
+    console.log('Sign in successful via form')
+    $('#sign-in').addClass('hidden')
+    $('#sign-out').removeClass('hidden')
+    $('#change-password').removeClass('hidden')
+    $('#view-games').removeClass('hidden')
+    $('#start-game').removeClass('hidden')
+    const gameStorage = window.localStorage
+    gameStorage.setItem('userLocal', JSON.stringify(app.user))
+    console.log(Object.keys(localStorage))
+  }
 }
 
 const signInFailure = (error) => {

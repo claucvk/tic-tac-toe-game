@@ -11,6 +11,10 @@ $(() => {
 // On document ready
 $(() => {
   events.addHandlers()
+  if (localStorage.getItem('userLocal') && localStorage.getItem('userLocal') !== 'undefined') {
+    console.log('dataLocal', JSON.parse(localStorage.getItem('userLocal')))
+    events.localStorageSignIn(JSON.parse(localStorage.getItem('userLocal')))
+  }
 })
 
 // Identify Who is the turn, switch turns and place the marker in the square chosen
