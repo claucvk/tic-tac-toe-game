@@ -23,7 +23,6 @@ const onSignIn = function (event) {
 }
 
 const localStorageSignIn = function (dataLocal) {
-  console.log('dataLocal ', dataLocal)
   ui.signInSuccess(dataLocal)
 }
 
@@ -51,8 +50,8 @@ const onCreateGame = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
   api.create(data)
-  .done(ui.onCreateSuccess)
-  .fail(ui.fail)
+    .done(ui.onCreateSuccess)
+    .fail(ui.fail)
 }
 // event handler to update game states
 const onUpdateGame = function (index, value, over) {
@@ -66,7 +65,7 @@ const onUpdateGame = function (index, value, over) {
 // Games history
 const onViewGames = function (event) {
   event.preventDefault();
-  let data = getFormFields(this); //event.target
+  let data = getFormFields(this) //event.target
   api.gameView(data)
   .done(ui.onViewSuccess)
   .fail(ui.fail)

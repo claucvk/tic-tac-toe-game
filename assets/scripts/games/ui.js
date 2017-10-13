@@ -32,8 +32,6 @@ const signInSuccess = (data) => {
   const userLocal = localStorage.getItem('userLocal')
   if (userLocal && userLocal !== 'undefined') {
     app.user = data
-    console.log('object2 ', data)
-    console.log('Sign in successful')
     $('#sign-in').addClass('hidden')
     $('#already-user').addClass('hidden')
     $('#sign-up').addClass('hidden')
@@ -44,7 +42,6 @@ const signInSuccess = (data) => {
   } else {
     // Sign in successful via form
     app.user = data.user
-    console.log('Sign in successful via form')
     $('#sign-in').addClass('hidden')
     $('#sign-out').removeClass('hidden')
     $('#change-password').removeClass('hidden')
@@ -52,7 +49,6 @@ const signInSuccess = (data) => {
     $('#start-game').removeClass('hidden')
     const gameStorage = window.localStorage
     gameStorage.setItem('userLocal', JSON.stringify(app.user))
-    console.log(Object.keys(localStorage))
   }
 }
 
@@ -60,7 +56,7 @@ const signInFailure = (error) => {
   console.log(error)
   console.log('Sign In failed. Verify your email or password!')
   const signInFail = $('#signInFail')
-  signInFail.html('Sign Up failed. Verify your email or password!').css('color', 'red')
+  signInFail.html('Sign In failed. Verify your email or password!').css('color', 'red')
 }
 
 // Sign Out
