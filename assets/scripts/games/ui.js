@@ -18,6 +18,8 @@ const signUpSuccess = (data) => {
 }
 const signUpFailure = (error) => {
   console.log(error)
+  $('#sign-in input').not('.submits-btn').val('')
+  $('#sign-up input').not('.submit-btn').val('')
   console.log('Sign Up failed. Verify your email or password!')
   const signUpFail = $('#signUpFail')
   signUpFail.html('Sign Up failed. Verify your email or password!').css('color', 'red')
@@ -47,9 +49,12 @@ const signInSuccess = (data) => {
     $('#change-password').removeClass('hidden')
     $('#view-games').removeClass('hidden')
     $('#start-game').removeClass('hidden')
+    $('#sign-in input').not('.submit-btn').val('')
     const gameStorage = window.localStorage
     gameStorage.setItem('userLocal', JSON.stringify(app.user))
   }
+  $('#sign-in input').not('.submits-btn').val('')
+  $('#sign-up input').not('.submit-btn').val('')
 }
 
 const signInFailure = (error) => {
@@ -57,6 +62,11 @@ const signInFailure = (error) => {
   console.log('Sign In failed. Verify your email or password!')
   const signInFail = $('#signInFail')
   signInFail.html('Sign In failed. Verify your email or password!').css('color', 'red')
+  $('#sign-in input').not('.submits-btn').val('')
+  $('#sign-up input').not('.submit-btn').val('')
+  setTimeout(function () {
+    $('#signInFail').html('')
+  }, 2000)
 }
 
 // Sign Out
