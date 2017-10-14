@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Tic Tac Toe Game</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body class="container-fluid">
+  <header>
+    <h1>TIC TAC TOE GAME</h1>
+  </header>
+  <br>
+  <main>
+    <!-- I. USER AUTHENTICATION-->
+    <div class="header">
+      <!-- Sign Up-->
+      <div>
+        <form id="sign-up">
+          <h2>Sign Up</h2>
+          <fieldset>
+            <legend></legend>
+            <input type="text" name="credentials[email]" value="" placeholder="email">
+            <input type="password" name="credentials[password]" value="" placeholder="password">
+            <input type="password" name="credentials[password_confirmation]" value="" placeholder="password confirmation">
+            <input type="submit" name="submit" class="submit-btn" value="Sign up!">
+          </fieldset>
+        </form>
+        <br>
+        <button type="button" name="Already a User" id="already-user">Already a User</button>
+        <p id="signUpFail"></p>
+      </div>
+      <!-- Sign In-->
+      <div>
+        <form id="sign-in" class="hidden">
+          <h2>Sign In</h2>
+          <fieldset>
+            <legend></legend>
+            <input type="text" name="credentials[email]" value="" placeholder="email">
+            <input type="password" name="credentials[password]" value="" placeholder="password">
+            <input type="submit" name="submit" value="Sign in!">
+          </fieldset>
+          <br>
+          <button type="button" name="Not a Userr" id="not-user">Wait, I DO need to Sign-up!</button>
+          <p id="signInFail"></p>
+        </form>
+      </div>
+    </div>
+    <!-- II. USER PROFILE-->
+    <div class="flex-grid">
+      <!-- Change password-->
+      <div class="col">
+        <form id="change-password" class="hidden change-password-error">
+          <fieldset>
+            <legend>Change Password</legend>
+            <input type="password" name="passwords[old]" value="" placeholder="Old Password" id="old-password">
+            <input type="password" name="passwords[new]" value="" placeholder="New Password" id="new-password">
+            <br>
+            <br>
+            <input type="submit" name="submit" class="submit-btn" value="Change Password">
+          </fieldset>
+        </form>
+        <p id="changePasswordFail"></p>
+      </div>
+      <!-- Games History-->
+
+      <div class="col">
+        <form id="view-games" class="hidden view-games">
+          <fieldset>
+            <legend>Games History</legend>
+            <input type="submit" name="submit" value="View Games History">
+          </fieldset>
+        </form>
+        <p id="hideGamesView"></p>
+        <div id="data-games"></div>
+      </div>
+      <!-- Sign Out-->
+      <div class="col">
+        <form id="sign-out" class="hidden">
+          <fieldset>
+            <legend>Sign Out</legend>
+            <input type="submit" name="submit" value="Sign out">
+          </fieldset>
+        </form>
+      </div>
+    </div>
+    <!-- III. BOARD GAME -->
+    <div>
+      <p class="hidden whosTurn" style="color:magenta;">It's Player X's Turn</p>
+    </div>
+    <div>
+      <p class="results"></p>
+    </div>
+    <div class="hidden boardGame">
+      <table class="boardGame">
+        <tr class="a">
+          <td id="a0" class="box stop"></td>
+          <td id="a1" class="box stop"></td>
+          <td id="a2" class="box stop"></td>
+        </tr>
+        <tr class="b">
+          <td id="b0" class="box stop"></td>
+          <td id="b1" class="box stop"></td>
+          <td id="b2" class="box stop"></td>
+        </tr>
+        <tr class="c">
+          <td id="c0" class="box stop"></td>
+          <td id="c1" class="box stop"></td>
+          <td id="c2" class="box stop"></td>
+        </tr>
+        <br>
+      </table>
+    </div>
+    <br>
+    <!-- Score game -->
+    <div class=" hidden scoreGame">
+      <table class=tableScoreGame>
+        <tr>
+          <td> PLAYER O </td>
+          <td> TIES </td>
+          <td> PLAYER X </td>
+        </tr>
+        <tr>
+          <td id="playerO"></td>
+          <td id="ties"></td>
+          <td id="playerX"></td>
+        </tr>
+      </table>
+    </div>
+    <br>
+    <!-- Play again button -->
+    <button type="button" class="hidden play-again">Play again</button>
+    <br>
+    <br>
+    <form class="hidden start-game" id="start-game">
+      <input type="submit" name="submit" value="Start game">
+    </form>
+
+    <form class="update-game" id="update-game" hidden>
+      <input id="index" name="game[cell][index]" type="text" value="">
+      <input id="value" name="game[cell][value]" type="text" value="">
+      <input id="over" name="game[over]" type="text" value="">
+    </form>
+  </main>
+</body>
+
+</html>
